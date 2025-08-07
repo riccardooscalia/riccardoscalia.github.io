@@ -160,12 +160,12 @@
 </head>
 <body>
   <nav>
-    <a href="#" onclick="showSection('home')">Home</a>
-    <a href="#" onclick="showSection('experience')">Experience</a>
-    <a href="#" onclick="showSection('projects')">Projects</a>
-    <a href="#" onclick="showSection('education')">Education</a>
-    <a href="#" onclick="showSection('skills-and-certifications')">Skills and Certifications</a>
-    <a href="#" onclick="showSection('contact')">Contact</a>
+    <a href="#" onclick="event.preventDefault(); showSection('home')">Home</a>
+    <a href="#" onclick="event.preventDefault(); showSection('experience')">Experience</a>
+    <a href="#" onclick="event.preventDefault(); showSection('projects')">Projects</a>
+    <a href="#" onclick="event.preventDefault(); showSection('education')">Education</a>
+    <a href="#" onclick="event.preventDefault(); showSection('skills-and-certifications')">Skills and Certifications</a>
+    <a href="#" onclick="event.preventDefault(); showSection('contact')">Contact</a>
   </nav>
 
  <section id="home" class="section active">
