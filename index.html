@@ -27,10 +27,29 @@
       border-bottom: 1px solid #23232a;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 1.5rem;
-      padding: 0.8rem 0;
+      padding: 0.8rem 0.5rem; /* reduced horizontal padding to help on small screens */
       z-index: 999;
       backdrop-filter: blur(6px);
+      -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+      scroll-snap-type: x proximity; /* nicer feel when scrolling tabs */
+      flex-wrap: nowrap;             /* keep items on a single line */
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;              /* horizontal scroll when needed on desktop */
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+    .nav-links a { /* keep snap behavior on anchors */
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      display: inline-block;
     }
     nav a {
       color: #e5e5e5;
@@ -42,6 +61,45 @@
       padding: 0.35rem 0.9rem;
       border-radius: 8px;
       border-bottom: 2px solid transparent;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      padding: 0.4rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+    .nav-toggle:focus { outline: 2px solid #2a2a33; outline-offset: 2px; }
+    .nav-toggle-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #e5e5e5;
+      margin: 4px 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    /* animate to an X when open */
+    nav.open .nav-toggle-bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    nav.open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    /* Optional: subtle, space-efficient horizontal scrollbar for the nav */
+    nav::-webkit-scrollbar {
+      height: 6px;
+    }
+    nav::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    nav::-webkit-scrollbar-thumb {
+      background: #2a2a33;
+      border-radius: 6px;
+    }
+    /* Hide scrollbar on Firefox but keep scrollability */
+    nav {
+      scrollbar-width: thin;
+      scrollbar-color: #2a2a33 transparent;
     }
     nav a.active-link {
       color: #c2a76d;
@@ -137,15 +195,40 @@
     .active {
       display: block;
     }
+    /* Fallback: reveal section when navigated via hash (works if JS is blocked) */
+    .section:target { display: block; }
     @media (max-width: 600px) {
       section {
         padding: 1rem 0.5rem 0.7rem;
         max-width: 98vw;
       }
       nav {
-        gap: 0.5rem;
-        font-size: 0.85rem;
+        gap: 0.6rem;
+        padding: 0.6rem 0.4rem;
       }
+      nav a {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.9rem;
+      }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;              /* hidden by default on mobile */
+        position: fixed;
+        top: 48px;                  /* just below the fixed nav */
+        left: 0;
+        right: 0;
+        background: rgba(14,14,17,0.98);
+        border-bottom: 1px solid #23232a;
+        padding: 0.75rem 0.9rem 1rem;
+        gap: 0.2rem;
+        flex-direction: column;
+        max-height: 70vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      nav.open .nav-links { display: flex; }
+      /* tighten link spacing in dropdown */
+      .nav-links a { padding: 0.5rem 0.2rem; font-size: 1rem; width: 100%; }
       h1 {
         font-size: 1.1rem;
       }
@@ -159,13 +242,20 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#" onclick="event.preventDefault(); showSection('home')">Home</a>
-    <a href="#" onclick="event.preventDefault(); showSection('experience')">Experience</a>
-    <a href="#" onclick="event.preventDefault(); showSection('projects')">Projects</a>
-    <a href="#" onclick="event.preventDefault(); showSection('education')">Education</a>
-    <a href="#" onclick="event.preventDefault(); showSection('skills-and-certifications')">Skills and Certifications</a>
-    <a href="#" onclick="event.preventDefault(); showSection('contact')">Contact</a>
+  <nav class="site-nav">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div id="nav-links" class="nav-links">
+      <a href="#home" data-section="home">Home</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#education" data-section="education">Education</a>
+      <a href="#skills-and-certifications" data-section="skills-and-certifications">Skills and Certifications</a>
+      <a href="#contact" data-section="contact">Contact</a>
+    </div>
   </nav>
 
  <section id="home" class="section active">
@@ -215,7 +305,7 @@
   <p>
     <strong>Salvatore Ferragamo – Equity Valuation Project</strong> (2025)<br>
     Performed a standalone equity valuation of the Ferragamo Group using relative valuation methods, including trading multiples and the Residual Earnings Model (REM). Focused on capital structure, growth assumptions, and financial positioning.<br><br>
-    <span style="color: #fff; font-weight: 500;">Tools:</span> Excel, PowerPoint, Bloomberg, Aida BvD.<br>
+    <span style="color: #fff; font-weight: 500;">Tools:</span> Excel, PowerPoint.<br>
     <span style="color: #fff; font-weight: 500;">Outcome:</span> top-ranked presentation in class.
     <br>
     <a href="Salvatore Ferragamo – Equity Valuation Project.jpg" download class="button" style="font-size: 0.78rem; padding: 0.3rem 0.9rem; margin-top: 0.5rem; border: 1px solid #c2a76d; color: #c2a76d; background: transparent; border-radius: 30px; display: inline-block; font-weight: 500; text-decoration: none;">View Extract</a>
@@ -259,7 +349,7 @@
     <h2>Languages</h2>
     <p><strong>Italian:</strong> Native<br>
       <strong>English:</strong> Fluent<br>
-      <strong>Spanish:</strong> Fluent<br>
+      <strong>Spanish:</strong> Intermediate<br>
       <strong>French:</strong> Elementary</p>
     <hr style="border: 0; height: 1px; background: linear-gradient(to right, rgba(194, 167, 109, 0.3), rgba(255,255,255,0), rgba(194, 167, 109, 0.3)); margin: 2rem 0;">
     <h2>Certifications</h2>
@@ -274,7 +364,7 @@
   <section id="contact" class="section">
     <h2>Contact</h2>
     <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 1.5rem;">
-      I am eager to connect with professionals, firms, and peers who share a passion for finance, strategic thinking, long-term value creation.
+      I am eager to connect with professionals, firms, and peers who share a passion for finance, structure, and long-term value.
     </p>
     <p style="font-size: 0.9rem;">
       <strong>Email:</strong><br>
@@ -289,22 +379,68 @@
     </div>
   </section>
 
+  <noscript>
+    <style>
+      /* Ensure basic usability without JS (e.g., iOS file preview) */
+      .nav-toggle { display: none !important; }
+      .nav-links { display: flex !important; position: static !important; overflow: auto !important; }
+      nav { justify-content: center; }
+    </style>
+    <div style="text-align:center; color:#bbb; font-size:0.85rem; padding:0.5rem 0.75rem;">
+      JavaScript is disabled. A basic menu is shown so you can navigate.
+    </div>
+  </noscript>
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(sec => sec.classList.remove('active'));
       document.getElementById(id).classList.add('active');
 
-      // Gestione active-link sulla navbar
-      const navLinks = document.querySelectorAll('nav a');
-      navLinks.forEach(link => link.classList.remove('active-link'));
-      const activeLink = Array.from(navLinks).find(link => link.getAttribute('onclick')?.includes(id));
-      if (activeLink) activeLink.classList.add('active-link');
+      // Gestione active-link sulla navbar (compatibile con Safari iOS più vecchi)
+      var navLinks = document.querySelectorAll('nav a');
+      Array.prototype.forEach.call(navLinks, function(link){
+        link.classList.remove('active-link');
+      });
+      var activeLink = Array.prototype.slice.call(navLinks).find(function(link){
+        var ds = link.getAttribute('data-section');
+        return ds === id;
+      });
+      if (activeLink) {
+        activeLink.classList.add('active-link');
+      }
     }
 
     document.addEventListener('DOMContentLoaded', function() {
       showSection('home');
     });
+
+    // Hamburger toggle and link wiring (compatibile con Safari iOS)
+    (function(){
+      var nav = document.querySelector('nav');
+      var toggle = document.querySelector('.nav-toggle');
+      var links = document.querySelectorAll('nav a[data-section]');
+
+      if (toggle) {
+        toggle.addEventListener('click', function(){
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', (!expanded).toString());
+          nav.classList.toggle('open');
+        });
+      }
+
+      Array.prototype.forEach.call(links, function(a){
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          var id = this.getAttribute('data-section');
+          if (id) { showSection(id); }
+          // close menu after selection on mobile
+          if (nav.classList.contains('open')) {
+            nav.classList.remove('open');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
   </script>
 
   <footer>
