@@ -1,33 +1,39 @@
-# Riccardo Scalia – Portfolio
+───────────────────────────────────────────────
+### R I C C A R D O   S C A L I A
+───────────────────────────────────────────────
+# Portfolio
 
-Welcome to my personal portfolio website: [riccardooscalia.github.io](https://riccardooscalia.github.io/riccardoscalia.github.io/)
+This repository contains the source code of my personal portfolio:  
+[riccardooscalia.github.io](https://riccardooscalia.github.io/riccardoscalia.github.io/)
 
-This repository hosts my online portfolio, designed to present a curated selection of academic and professional finance projects developed during my MSc in Corporate Finance at LUISS University (Rome).
+The website presents a curated selection of analytical and valuation projects developed during academic studies and professional experience in corporate and investment finance.  
+Its dark, minimal design reflects the same principles applied in the work itself: clarity, balance, and precision.
 
-## 💼 About Me
-I am a finance graduate with experience in Corporate & Investment Banking, driven by precision, strategic reasoning, and curiosity for global markets.  
-I have worked on projects involving corporate analysis, valuation, and credit risk assessment, combining academic rigor with real-world financial insight.
+───────────────────────────────────────────────
 
-## 📂 Featured Projects
-- **Banco Popular – Resolution Case Study**  
-  Analytical review of Banco Popular’s resolution and its impact on the European banking framework.  
-- **Rothschild & Co. – M&A Business Game**  
-  Full M&A advisory and valuation exercise based on a real-world transaction scenario.  
-- **Salvatore Ferragamo – Equity Valuation Project**  
-  Comprehensive equity valuation using DCF and trading/multiples approaches.
+## Projects
 
-## 🌐 Website Overview
-The site includes:
-- Visual presentation of selected case studies and valuation work  
-- A downloadable copy of my CV  
-- Contact information and LinkedIn link for professional networking  
+**Banco Popular – Resolution Case Study**  
+Assessment of Banco Popular’s resolution process and its implications for the European banking framework.
 
-## ⚙️ Tech Stack
-- **HTML5 / CSS3 / JavaScript**  
-- **GitHub Pages** for hosting and deployment  
+**Rothschild & Co. – M&A Business Game**  
+Advisory and valuation exercise simulating a cross-border acquisition, focusing on structure and financial rationale.
 
----
+───────────────────────────────────────────────
 
-📩 *For collaborations or inquiries:*  
-[LinkedIn – Riccardo Scalia](https://www.linkedin.com/in/riccardoscalia)  
-[Portfolio Website](https://riccardooscalia.github.io/riccardoscalia.github.io/)
+## Website
+
+The portfolio includes:
+- Selected case studies and analytical work  
+- A downloadable CV  
+- Contact and networking links  
+
+───────────────────────────────────────────────
+
+## Technical Notes
+
+Developed using HTML, CSS, and JavaScript.  
+Hosted via GitHub Pages.  
+Designed for dark mode with gold-accented typography and understated contrast.
+
+───────────────────────────────────────────────
