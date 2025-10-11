@@ -1,59 +1,54 @@
-<div align="center" style="text-align:center;">
+<div align="center">
 
-  <div style="height:1px; background:#bfa76f; width:92%; margin:18px auto 10px;"></div>
-  <div style="letter-spacing:8px; color:#bfa76f; font-size:14px; margin:0;">RICCARDO SCALIA</div>
-  <div style="height:1px; background:#bfa76f; width:92%; margin:10px auto 22px;"></div>
+<hr style="border: 0.5px solid #bfa76f; width: 90%; margin-bottom: 10px;">
 
-  <div style="color:#ffffff; font-size:28px; font-weight:400; margin-top:6px;">Portfolio</div>
+<h3 style="letter-spacing: 8px; color: #bfa76f; margin: 0;">RICCARDO SCALIA</h3>
 
-  <div style="color:#cccccc; max-width:720px; margin:18px auto 0; line-height:1.6;">
-    This repository contains the source code of my personal portfolio:
-    <a href="https://riccardooscalia.github.io/riccardoscalia.github.io/" style="color:#bfa76f; text-decoration:none;">riccardooscalia.github.io</a>
-  </div>
+<hr style="border: 0.5px solid #bfa76f; width: 90%; margin-top: 10px;">
 
-  <div style="color:#cccccc; max-width:760px; margin:22px auto 0; line-height:1.6;">
-    The website presents a selection of analytical and valuation projects developed during academic studies and work in corporate and investment finance.  
-    Dark, minimal layout. Focus on clarity, proportion, precision.
-  </div>
+<h1 style="color: #ffffff; font-weight: 400; margin-top: 25px;">Portfolio</h1>
+
+<p style="color: #cccccc; max-width: 600px; margin: auto; font-size: 14px; line-height: 1.6;">
+This repository contains the source code of my personal portfolio:<br>
+<a href="https://riccardooscalia.github.io/riccardoscalia.github.io/" style="color:#bfa76f; text-decoration:none;">riccardooscalia.github.io</a>
+</p>
+
+<p style="color: #cccccc; max-width: 700px; margin: 30px auto; font-size: 14px; line-height: 1.6;">
+The website presents a selection of analytical and valuation projects developed during academic studies and professional experience in corporate and investment finance.<br>
+It reflects the same principles that guide the work itself — clarity, proportion, and precision.
+</p>
 
 </div>
 
-<div style="height:1px; background:#bfa76f; width:100%; margin:34px 0;"></div>
+<hr style="border: 0.5px solid #bfa76f; margin: 40px 0;">
 
-<h2 style="color:#bfa76f; margin:0 0 10px 0;">Projects</h2>
+<h2 style="color: #bfa76f;">Projects</h2>
 
-<div style="color:#ffffff; font-weight:600;">Banco Popular — Resolution Case Study</div>
-<div style="color:#cccccc; margin:6px 0 18px; line-height:1.6;">
-  Assessment of the resolution process and implications for the European banking framework.
-</div>
+<p style="color: #ffffff;"><b>Banco Popular – Resolution Case Study</b></p>
+<p style="color: #cccccc;">Assessment of Banco Popular’s resolution process and its implications for the European banking framework.</p>
 
-<div style="color:#ffffff; font-weight:600;">Rothschild &amp; Co. — M&amp;A Business Game</div>
-<div style="color:#cccccc; margin:6px 0 0; line-height:1.6;">
-  Advisory simulation and valuation of a cross-border acquisition; structure and financial rationale.
-</div>
+<p style="color: #ffffff;"><b>Rothschild & Co. – M&A Business Game</b></p>
+<p style="color: #cccccc;">Advisory and valuation exercise simulating a cross-border acquisition, focusing on deal structure and financial rationale.</p>
 
-<div style="height:1px; background:#bfa76f; width:100%; margin:34px 0;"></div>
+<hr style="border: 0.5px solid #bfa76f; margin: 40px 0;">
 
-<h2 style="color:#bfa76f; margin:0 0 10px 0;">Website</h2>
+<h2 style="color: #bfa76f;">Website</h2>
 
-<div style="color:#cccccc; line-height:1.6;">
-  Curated case studies and analytical work.<br>
-  Downloadable CV.<br>
-  Contact and networking links.
-</div>
+<p style="color: #cccccc;">
+The portfolio includes:<br>
+<span style="color:#ffffff;">•</span> Selected case studies and analytical work<br>
+<span style="color:#ffffff;">•</span> A downloadable CV<br>
+<span style="color:#ffffff;">•</span> Contact and networking links
+</p>
 
-<div style="height:1px; background:#bfa76f; width:100%; margin:34px 0;"></div>
+<hr style="border: 0.5px solid #bfa76f; margin: 40px 0;">
 
-<h2 style="color:#bfa76f; margin:0 0 10px 0;">Technical Notes</h2>
+<h2 style="color: #bfa76f;">Technical Notes</h2>
 
-<div style="color:#cccccc; line-height:1.6;">
-  Built with <span style="color:#ffffff;">HTML</span>, <span style="color:#ffffff;">CSS</span>, <span style="color:#ffffff;">JavaScript</span>.  
-  Hosted on <span style="color:#ffffff;">GitHub Pages</span>.  
-  Optimized for dark mode with gold-accented typography.
-</div>
+<p style="color: #cccccc;">
+Developed using <span style="color:#ffffff;">HTML</span>, <span style="color:#ffffff;">CSS</span>, and <span style="color:#ffffff;">JavaScript</span>.<br>
+Hosted via <span style="color:#ffffff;">GitHub Pages</span>.<br>
+Optimized for dark mode with gold-accented minimal typography.
+</p>
 
-<div style="height:1px; background:#bfa76f; width:100%; margin:38px 0 12px;"></div>
-
-<div align="center" style="text-align:center; color:#bfa76f; font-size:12px; letter-spacing:1px;">
-  © 2025 Riccardo Scalia — Personal Portfolio
-</div>
+<hr style="border: 0.5px solid #bfa76f; margin-top: 50px;">
