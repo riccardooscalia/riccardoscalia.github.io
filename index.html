@@ -7,21 +7,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#2e2e2e;--bg2:#363636;--bd:#444;--bd2:#555;--t:#0a0a0a;--t2:#0a0a0a;--t3:#888}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t2);font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:root{--bg:#3a3a3a;--bg2:#424242;--bd:#525252;--bd2:#626262;--t3:#808080}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:#c8c8c8;font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;height:54px;background:rgba(46,46,46,.97);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;z-index:1000}
-.nav-name{font-size:.75rem;font-weight:500;color:#f0f0f0;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;height:54px;background:rgba(58,58,58,.97);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;z-index:1000}
+.nav-name{font-size:.75rem;font-weight:500;color:#d8d8d8;text-decoration:none}
 .nav-links{display:flex;gap:2.5rem}
-nav a{font-size:.72rem;font-weight:300;color:#888;text-decoration:none;transition:color .15s}
-nav a:hover{color:#f0f0f0}
+nav a{font-size:.72rem;font-weight:300;color:var(--t3);text-decoration:none;transition:color .15s}
+nav a:hover{color:#ffffff}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
-.bar{display:block;width:18px;height:1px;background:#f0f0f0;margin:5px 0}
-.mob{display:none;position:fixed;top:54px;left:0;right:0;background:rgba(46,46,46,.98);border-bottom:1px solid var(--bd);flex-direction:column;z-index:999}
+.bar{display:block;width:18px;height:1px;background:#d8d8d8;margin:5px 0}
+.mob{display:none;position:fixed;top:54px;left:0;right:0;background:rgba(58,58,58,.98);border-bottom:1px solid var(--bd);flex-direction:column;z-index:999}
 nav.open~.mob{display:flex}
-.mob a{font-size:.85rem;color:#ccc;text-decoration:none;padding:.85rem 2rem;border-bottom:1px solid var(--bd)}
-.mob a:hover{background:var(--bg2);color:#f0f0f0}
+.mob a{font-size:.85rem;color:#bbb;text-decoration:none;padding:.85rem 2rem;border-bottom:1px solid var(--bd)}
+.mob a:hover{background:var(--bg2);color:#fff}
 
 /* PAGES — :target navigation */
 .page{display:none;min-height:100vh;padding-top:54px}
@@ -29,34 +29,39 @@ body:not(:has(.page:target)) #home{display:block}
 .page:target{display:block;animation:up .3s ease}
 @keyframes up{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
+/* active nav link = white */
 body:not(:has(.page:target)) nav a[href="#home"],
 #home:target~nav a[href="#home"],
 #experience:target~nav a[href="#experience"],
 #projects:target~nav a[href="#projects"],
 #education:target~nav a[href="#education"],
 #skills:target~nav a[href="#skills"],
-#contact:target~nav a[href="#contact"]{color:#f0f0f0}
+#contact:target~nav a[href="#contact"]{color:#ffffff;font-weight:400}
 
 /* HOME */
-.hero{min-height:calc(100vh - 54px);display:grid;grid-template-rows:1fr auto;padding:0 3rem}
-.hero-center{display:flex;flex-direction:column;justify-content:center;padding:4rem 0 3rem;border-bottom:1px solid var(--bd)}
+.hero{min-height:calc(100vh - 54px);display:grid;grid-template-rows:1fr auto;padding:0 3rem;position:relative}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);opacity:.18}
+.hero-center{display:flex;flex-direction:column;justify-content:center;padding:4rem 0 3rem;border-bottom:1px solid var(--bd);position:relative;z-index:1}
 .hero-location{font-size:.62rem;font-weight:300;color:var(--t3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:3rem}
-.hero-name{font-size:clamp(2.2rem,5vw,4.2rem);font-weight:300;color:#f0f0f0;letter-spacing:-1.5px;line-height:1;margin-bottom:1rem}
+.hero-name{font-size:clamp(2.2rem,5vw,4.2rem);font-weight:300;color:#e8e8e8;letter-spacing:-1.5px;line-height:1;margin-bottom:1rem}
 .hero-role{font-size:.78rem;font-weight:300;color:var(--t3);letter-spacing:.3px}
 
-.hero-bottom{display:grid;grid-template-columns:repeat(4,1fr)}
-.hero-cell{padding:1.4rem 1.5rem;border-right:1px solid var(--bd);text-decoration:none;transition:opacity .15s}
-.hero-cell:last-child{border-right:none}
+/* 3. Hero bottom — elegant list, no grid lines */
+.hero-bottom{padding:2rem 0;display:flex;flex-direction:column;gap:0;position:relative;z-index:1}
+.hero-cell{padding:.9rem 0;border-bottom:1px solid var(--bd);text-decoration:none;display:flex;align-items:baseline;gap:2rem;justify-content:space-between;transition:opacity .18s}
+.hero-cell:last-child{border-bottom:none}
 .hero-cell:hover{opacity:.55}
-.hc-label{font-size:.57rem;font-weight:400;letter-spacing:1.8px;text-transform:uppercase;color:var(--t3);margin-bottom:.6rem}
-.hc-title{font-size:.8rem;font-weight:400;color:#e8e8e8;line-height:1.4;margin-bottom:.2rem}
-.hc-sub{font-size:.68rem;color:var(--t3);font-weight:300}
+.hc-left{display:flex;align-items:baseline;gap:1.5rem;flex:1;min-width:0}
+.hc-label{font-size:.57rem;font-weight:400;letter-spacing:1.8px;text-transform:uppercase;color:var(--t3);white-space:nowrap;flex-shrink:0;width:7rem}
+.hc-title{font-size:.83rem;font-weight:500;color:#d8d8d8;line-height:1.3}
+.hc-sub{font-size:.68rem;color:var(--t3);font-weight:300;white-space:nowrap;flex-shrink:0}
 
 .home-about{background:var(--bg2);border-top:1px solid var(--bd);display:grid;grid-template-columns:1fr 1fr}
 .ab-block{padding:3rem;border-right:1px solid var(--bd)}
 .ab-block:last-child{border-right:none}
 .ab-label{font-size:.57rem;font-weight:400;letter-spacing:1.8px;text-transform:uppercase;color:var(--t3);margin-bottom:1.1rem;display:block}
-.ab-block p{font-size:.81rem;line-height:1.9;font-weight:300;color:#ccc;margin-bottom:.8rem}
+.ab-block p{font-size:.81rem;line-height:1.9;font-weight:300;color:#bbb;margin-bottom:.8rem}
 .ab-block p:last-child{margin-bottom:0}
 
 /* INNER PAGES */
@@ -65,32 +70,30 @@ body:not(:has(.page:target)) nav a[href="#home"],
 .entry{padding:2rem 0;border-bottom:1px solid var(--bd)}
 .entry:first-of-type{border-top:1px solid var(--bd)}
 .entry-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.3rem;flex-wrap:wrap}
-.entry-title{font-size:.9rem;font-weight:500;color:#e8e8e8;line-height:1.3}
+.entry-title{font-size:.9rem;font-weight:500;color:#d8d8d8;line-height:1.3}
 .entry-date{font-size:.65rem;color:var(--t3);white-space:nowrap;font-weight:300}
 .entry-role{font-size:.7rem;color:var(--t3);font-weight:300;margin-bottom:.75rem}
 .entry-tags{margin-bottom:.75rem}
 .tag{display:inline-block;font-size:.57rem;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--t3);border:1px solid var(--bd);padding:.12rem .45rem;margin-right:.3rem;border-radius:2px}
-.entry-body{font-size:.8rem;color:#bbb;line-height:1.88;font-weight:300}
+.entry-body{font-size:.8rem;color:#b8b8b8;line-height:1.88;font-weight:300}
 .entry-body p{margin-bottom:.5rem}
 .entry-body p:last-child{margin-bottom:0}
 .entry-stat{margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--bd);font-size:.7rem;color:var(--t3)}
-.entry-stat span{color:#ccc}
-a.btn{display:inline-block;margin-top:.8rem;font-size:.68rem;font-weight:300;color:#ccc;text-decoration:none;border:1px solid var(--bd);padding:.3rem .85rem;border-radius:1px;transition:border-color .15s,color .15s}
-a.btn:hover{border-color:var(--bd2);color:#f0f0f0}
+.entry-stat span{color:#c8c8c8}
+a.btn{display:inline-block;margin-top:.8rem;font-size:.68rem;font-weight:300;color:#bbb;text-decoration:none;border:1px solid var(--bd);padding:.3rem .85rem;border-radius:1px;transition:border-color .15s,color .15s}
+a.btn:hover{border-color:var(--bd2);color:#e8e8e8}
 .lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem 2rem;padding-top:.2rem}
-.lg-name{font-size:.8rem;font-weight:400;color:#e8e8e8}
+.lg-name{font-size:.8rem;font-weight:500;color:#d8d8d8}
 .lg-level{font-size:.67rem;color:var(--t3);font-weight:300;margin-top:.1rem}
 .contact-link{display:flex;align-items:baseline;justify-content:space-between;padding:1.3rem 0;border-bottom:1px solid var(--bd);text-decoration:none;transition:opacity .15s}
 .contact-link:first-of-type{border-top:1px solid var(--bd)}
 .contact-link:hover{opacity:.5}
-.cl-label{font-size:.8rem;font-weight:500;color:#e8e8e8}
+.cl-label{font-size:.8rem;font-weight:500;color:#d8d8d8}
 .cl-val{font-size:.73rem;color:var(--t3);font-weight:300}
 footer{text-align:center;padding:1.5rem;font-size:.6rem;color:var(--t3);font-weight:300;border-top:1px solid var(--bd);letter-spacing:.5px;background:var(--bg)}
 
 @media(max-width:860px){
-  .hero-bottom{grid-template-columns:1fr 1fr}
-  .hero-cell:nth-child(2){border-right:none}
-  .hero-cell:nth-child(3),.hero-cell:nth-child(4){border-top:1px solid var(--bd)}
+  .hc-sub{display:none}
   .home-about{grid-template-columns:1fr}
   .ab-block{border-right:none;border-bottom:1px solid var(--bd)}
   .ab-block:last-child{border-bottom:none}
@@ -100,8 +103,7 @@ footer{text-align:center;padding:1.5rem;font-size:.6rem;color:var(--t3);font-wei
   .nav-links{display:none}
   .nav-toggle{display:block}
   .hero{padding:0 1.5rem}
-  .hero-bottom{grid-template-columns:1fr}
-  .hero-cell{border-right:none!important;border-top:1px solid var(--bd)}
+  .hc-label{width:5rem}
   .ab-block{padding:2rem 1.5rem}
   .inner{padding:3.5rem 1.3rem 5rem}
   .entry-top{flex-direction:column;gap:.15rem}
@@ -137,6 +139,9 @@ footer{text-align:center;padding:1.5rem;font-size:.6rem;color:var(--t3);font-wei
 <!-- HOME -->
 <div id="home" class="page">
   <div class="hero">
+    <div class="hero-bg">
+      <img src="Home.jpg" alt="">
+    </div>
     <div class="hero-center">
       <div class="hero-location">Milan · 2026</div>
       <h1 class="hero-name">Riccardo Scalia</h1>
@@ -144,23 +149,31 @@ footer{text-align:center;padding:1.5rem;font-size:.6rem;color:var(--t3);font-wei
     </div>
     <div class="hero-bottom">
       <a class="hero-cell" href="#experience">
-        <div class="hc-label">Current</div>
-        <div class="hc-title">Clessidra Capital Credit SGR — CPD II</div>
+        <div class="hc-left">
+          <div class="hc-label">Current</div>
+          <div class="hc-title">Clessidra Capital Credit SGR — CPD II</div>
+        </div>
         <div class="hc-sub">Investment Analysis · Milan · 2026</div>
       </a>
       <a class="hero-cell" href="#experience">
-        <div class="hc-label">Previous</div>
-        <div class="hc-title">BBVA CIB — Global Relationship &amp; Coverage</div>
+        <div class="hc-left">
+          <div class="hc-label">Previous</div>
+          <div class="hc-title">BBVA CIB — Global Relationship &amp; Coverage</div>
+        </div>
         <div class="hc-sub">Syndication &amp; Coverage · Milan · 2025</div>
       </a>
       <a class="hero-cell" href="#projects">
-        <div class="hc-label">Latest project</div>
-        <div class="hc-title">Global Rates Signal Lab</div>
+        <div class="hc-left">
+          <div class="hc-label">Latest project</div>
+          <div class="hc-title">Global Rates Signal Lab</div>
+        </div>
         <div class="hc-sub">Duration, Carry &amp; Cross-Market · 2026</div>
       </a>
       <a class="hero-cell" href="#education">
-        <div class="hc-label">Academic</div>
-        <div class="hc-title">LUISS — MSc Corporate Finance</div>
+        <div class="hc-left">
+          <div class="hc-label">Academic</div>
+          <div class="hc-title">LUISS — MSc Corporate Finance</div>
+        </div>
         <div class="hc-sub">FT 20th in Europe · GPA 29.3/30</div>
       </a>
     </div>
@@ -392,21 +405,13 @@ footer{text-align:center;padding:1.5rem;font-size:.6rem;color:var(--t3);font-wei
   <div class="inner">
     <span class="page-lbl">Contact</span>
     <p style="font-size:.82rem;line-height:1.9;font-weight:300;color:var(--t2);margin-bottom:2.5rem;max-width:460px">Open to connecting with professionals and peers who share a genuine interest in markets, investment analysis, and long-term value creation.</p>
-    <a href="mailto:rscaliawork@gmail.com" class="contact-link">
+    <a href="/cdn-cgi/l/email-protection#3a4849595b56535b4d5548517a5d575b535614595557" class="contact-link">
       <div class="cl-label">Email</div>
-      <div class="cl-val">rscaliawork@gmail.com</div>
+      <div class="cl-val"><span class="__cf_email__" data-cfemail="d9abaabab8b5b0b8aeb6abb299beb4b8b0b5f7bab6b4">[email&#160;protected]</span></div>
     </a>
     <a href="https://www.linkedin.com/in/riccardoscalia" target="_blank" class="contact-link">
       <div class="cl-label">LinkedIn</div>
       <div class="cl-val">linkedin.com/in/riccardoscalia</div>
     </a>
     <a href="RiccardoScalia_CV.pdf" download class="contact-link">
-      <div class="cl-label">CV</div>
-      <div class="cl-val">Download PDF</div>
-    </a>
-  </div>
-  <footer>© 2026 Riccardo Scalia</footer>
-</div>
-
-</body>
-</html>
+      <div class="cl-label">
