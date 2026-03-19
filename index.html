@@ -4,106 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riccardo Scalia | Portfolio</title>
-  <meta name="description" content="Riccardo Scalia – Finance professional focused on investment analysis, capital markets and asset pricing. MSc Corporate Finance LUISS (GPA 29.3/30), Erasmus Utrecht (30/30).">
+  <meta name="description" content="Riccardo Scalia – Finance professional focused on investment analysis, capital markets and asset pricing. MSc Corporate Finance LUISS, Erasmus Utrecht.">
   <meta property="og:title" content="Riccardo Scalia | Finance Portfolio">
   <meta property="og:description" content="Investment Analysis · Capital Markets · Asset Pricing. MSc Corporate Finance LUISS.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://riccardooscalia.github.io/riccardoscalia.github.io/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
       --navy:#003087;
       --navy-mid:#004aad;
-      --navy-line:rgba(0,74,173,0.55);
-      --navy-soft:rgba(0,48,135,0.08);
-      --navy-border:rgba(0,74,173,0.22);
-      --gold:#c2a76d;
-      --gold-dim:rgba(194,167,109,0.09);
-      --bg:#08080e;
-      --bg2:#0c0c16;
-      --border:#181826;
-      --border2:#1e1e2e;
-      --text:#d8e0ea;
-      --muted:#6a7585;
-      --soft:#9aa5b4;
-      --white:#edf1f7;
+      --navy-line:rgba(0,74,173,0.5);
+      --navy-soft:rgba(0,48,135,0.07);
+      --navy-border:rgba(0,74,173,0.2);
+      --bg:#07070d;
+      --border:#161620;
+      --text:#cdd5e0;
+      --muted:#525d6e;
+      --soft:#8e99a8;
+      --white:#e8edf4;
     }
-    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;font-size:14px;letter-spacing:.015em}
 
-    /* ── NAV ── */
-    nav{position:fixed;top:0;width:100%;background:rgba(8,8,14,.97);border-bottom:1px solid var(--border);display:flex;justify-content:center;align-items:center;padding:.75rem .5rem;z-index:999;backdrop-filter:blur(14px)}
-    .nav-links{display:flex;gap:1.2rem;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;align-items:center;-webkit-overflow-scrolling:touch}
-    .nav-links a{flex:0 0 auto}
-    nav a{color:var(--muted);text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:400;font-size:.84rem;letter-spacing:.3px;transition:color .2s;padding:.3rem .8rem;border-radius:3px;border-bottom:2px solid transparent}
-    nav a.active-link{color:var(--white);border-bottom:2px solid var(--navy-mid);font-weight:500;border-radius:0}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;font-size:14px}
+
+    /* NAV */
+    nav{position:fixed;top:0;width:100%;background:rgba(7,7,13,.97);border-bottom:1px solid var(--border);display:flex;justify-content:center;align-items:center;padding:.7rem 1rem;z-index:999;backdrop-filter:blur(12px)}
+    .nav-links{display:flex;gap:1.4rem;flex-wrap:nowrap;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-size:.83rem;font-weight:400;letter-spacing:.3px;padding:.28rem .7rem;border-bottom:1.5px solid transparent;transition:color .18s,border-color .18s}
+    nav a.active-link{color:var(--white);border-bottom-color:var(--navy-mid);font-weight:500}
     nav a:hover{color:var(--white)}
     .nav-toggle{display:none;background:transparent;border:none;padding:.4rem;cursor:pointer}
-    .nav-toggle-bar{display:block;width:20px;height:1.5px;background:var(--soft);margin:4px 0;transition:transform .25s,opacity .25s}
+    .nav-toggle-bar{display:block;width:20px;height:1.5px;background:var(--soft);margin:4px 0;transition:transform .22s,opacity .22s}
     nav.open .nav-toggle-bar:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
     nav.open .nav-toggle-bar:nth-child(2){opacity:0}
     nav.open .nav-toggle-bar:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
 
-    /* ── SECTIONS ── */
-    section{padding:2.8rem 0 2.5rem 2vw;max-width:800px;margin:4rem auto 2rem;min-height:72vh;animation:fadeIn .45s ease forwards}
+    /* LAYOUT — all sections same max-width and left padding */
+    section{padding:2.8rem 1.5rem 2.5rem;max-width:780px;margin:4rem auto 2rem;min-height:72vh;animation:fadeIn .4s ease forwards}
     .section{display:none}
     .active{display:block}
 
-    /* ── TYPE ── */
-    h1{font-family:'Playfair Display',Georgia,serif;font-size:1.9rem;font-weight:400;color:var(--white);letter-spacing:.3px;margin-bottom:.2rem}
-    h2{font-family:'Playfair Display',Georgia,serif;font-size:.98rem;color:var(--gold);font-weight:500;margin-bottom:.9rem;margin-top:1.8rem;letter-spacing:.6px;text-transform:uppercase}
-    p,li{font-family:'DM Sans',sans-serif;font-size:.79rem;color:var(--soft);margin-bottom:.8rem;line-height:1.8;font-weight:300}
-    strong{font-size:.88rem;color:var(--text);font-weight:500}
-    em{font-size:.82rem;color:var(--gold);font-style:normal;font-weight:400}
+    /* TYPE */
+    h1{font-family:'Playfair Display',Georgia,serif;font-size:1.85rem;font-weight:400;color:var(--white);letter-spacing:.2px;margin-bottom:.15rem}
+    h2{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;color:var(--navy-mid);letter-spacing:1.1px;text-transform:uppercase;margin-bottom:1rem;margin-top:2rem}
+    p{font-size:.79rem;color:var(--soft);margin-bottom:.75rem;line-height:1.78;font-weight:300}
+    strong{font-size:.86rem;color:var(--text);font-weight:500}
 
-    /* ── DIVIDER ── */
-    .divider{border:0;height:1px;background:var(--border2);margin:1.8rem 0}
+    /* DIVIDER */
+    .divider{border:0;height:1px;background:var(--border);margin:1.8rem 0}
 
-    /* ── BUTTON ── */
-    a.button{padding:.38rem 1rem;background:transparent;border:1px solid rgba(194,167,109,.4);color:var(--gold);text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.5px;transition:all .2s;border-radius:2px;display:inline-block;margin-top:.65rem;font-weight:400}
-    a.button:hover{background:var(--gold-dim);border-color:var(--gold)}
+    /* BUTTON */
+    a.button{padding:.35rem .95rem;background:transparent;border:1px solid rgba(0,74,173,.4);color:#6d9fd8;text-decoration:none;font-size:.73rem;letter-spacing:.5px;transition:all .18s;border-radius:2px;display:inline-block;margin-top:.6rem;font-weight:400}
+    a.button:hover{background:var(--navy-soft);border-color:var(--navy-mid);color:#8ab4e0}
 
-    /* ── TAG ── */
-    .tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.63rem;font-weight:500;letter-spacing:.8px;color:#6d9fd8;background:var(--navy-soft);border:1px solid var(--navy-border);border-radius:2px;padding:.1rem .45rem;margin-right:.3rem;text-transform:uppercase}
+    /* TAG */
+    .tag{display:inline-block;font-size:.61rem;font-weight:500;letter-spacing:.8px;color:#5d8fc0;background:var(--navy-soft);border:1px solid var(--navy-border);border-radius:2px;padding:.1rem .42rem;margin-right:.3rem;text-transform:uppercase}
 
-    /* ── VERTICAL TIMELINE ── */
-    .timeline{position:relative;padding-left:1.5rem;margin-top:.8rem}
-    .timeline::before{content:'';position:absolute;left:0;top:.4rem;bottom:.4rem;width:1px;background:linear-gradient(to bottom,var(--navy-line) 0%,rgba(0,74,173,.12) 100%)}
-    .tl-item{position:relative;margin-bottom:2rem}
+    /* TIMELINE */
+    .timeline{position:relative;padding-left:1.4rem}
+    .timeline::before{content:'';position:absolute;left:0;top:.5rem;bottom:.5rem;width:1px;background:linear-gradient(to bottom,var(--navy-line),rgba(0,74,173,.06))}
+    .tl-item{position:relative;margin-bottom:1.9rem}
     .tl-item:last-child{margin-bottom:0}
-    .tl-dot{position:absolute;left:-1.87rem;top:.42rem;width:6px;height:6px;border-radius:50%;background:var(--navy-mid);box-shadow:0 0 0 2px var(--bg),0 0 0 3px rgba(0,74,173,.3)}
-    .tl-date{font-family:'DM Sans',sans-serif;font-size:.66rem;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;margin-bottom:.2rem;font-weight:400}
-    .tl-title{font-family:'DM Sans',sans-serif;font-size:.86rem;color:var(--white);font-weight:500;margin-bottom:.3rem;letter-spacing:.1px}
-    .tl-role{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--gold);font-weight:400;margin-bottom:.4rem;font-style:normal}
-    .tl-sub{font-family:'DM Sans',sans-serif;font-size:.77rem;color:var(--soft);line-height:1.75;font-weight:300}
+    .tl-dot{position:absolute;left:-1.78rem;top:.46rem;width:5px;height:5px;border-radius:50%;background:var(--navy-mid);box-shadow:0 0 0 2px var(--bg),0 0 0 3px rgba(0,74,173,.28)}
+    .tl-date{font-size:.64rem;color:var(--muted);letter-spacing:.55px;text-transform:uppercase;margin-bottom:.18rem}
+    .tl-title{font-size:.86rem;color:var(--white);font-weight:500;margin-bottom:.15rem;letter-spacing:.05px}
+    .tl-role{font-size:.74rem;color:#5d8fc0;font-weight:400;margin-bottom:.35rem}
+    .tl-sub{font-size:.76rem;color:var(--soft);line-height:1.75;font-weight:300}
 
-    /* ── HOME INTRO ── */
-    .intro-role{font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--soft);font-weight:300;letter-spacing:.2px;margin-bottom:1.6rem;line-height:1.7}
-    .intro-role span{color:var(--text);font-weight:400}
+    /* SNAPSHOT CARDS — home "at a glance" */
+    .snapshot{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.5rem 0}
+    .snap-card{border:1px solid var(--border);border-radius:3px;padding:.85rem 1rem;background:rgba(255,255,255,.016)}
+    .snap-label{font-size:.6rem;font-weight:500;letter-spacing:.9px;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+    .snap-title{font-size:.8rem;color:var(--white);font-weight:500;margin-bottom:.15rem;line-height:1.4}
+    .snap-detail{font-size:.72rem;color:var(--soft);font-weight:300;line-height:1.5}
 
-    /* ── INLINE NOTE ── */
-    .note{border-left:1px solid var(--navy-mid);padding:.6rem .9rem;margin:1.3rem 0;background:var(--navy-soft)}
-    .note p{margin:0;font-size:.76rem;color:var(--soft);line-height:1.7}
+    /* SAILING HIGHLIGHT */
+    .sailing-line{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.6rem}
+    .sailing-icon{font-size:.78rem;color:var(--navy-mid);letter-spacing:.5px;text-transform:uppercase;font-weight:500;white-space:nowrap}
 
-    /* ── KPI ROW (after bio, subtle) ── */
-    .kpi-row{display:flex;gap:2rem;margin:1.6rem 0 .4rem;flex-wrap:wrap}
-    .kpi-item{display:flex;flex-direction:column}
-    .kpi-val{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:500;color:var(--white);line-height:1}
-    .kpi-lbl{font-family:'DM Sans',sans-serif;font-size:.62rem;color:var(--muted);letter-spacing:.7px;text-transform:uppercase;margin-top:.2rem}
+    /* NOTE */
+    .note{border-left:1px solid var(--navy-mid);padding:.55rem .85rem;margin:1.2rem 0;background:var(--navy-soft)}
+    .note p{margin:0;font-size:.75rem;color:var(--soft);line-height:1.7}
 
-    /* FOOTER */
-    footer{text-align:center;padding:1.5rem;font-family:'DM Sans',sans-serif;font-size:.68rem;color:#232836;border-top:1px solid var(--border);background:var(--bg);margin-top:1.5rem}
+    /* KPI ROW */
+    .kpi-row{display:flex;gap:2rem;margin:1.4rem 0;flex-wrap:wrap}
+    .kpi-val{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:400;color:var(--white);line-height:1}
+    .kpi-lbl{font-size:.6rem;color:var(--muted);letter-spacing:.7px;text-transform:uppercase;margin-top:.18rem}
 
-    @keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    footer{text-align:center;padding:1.4rem;font-size:.66rem;color:#1e2330;border-top:1px solid var(--border);background:var(--bg);margin-top:1.5rem}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
     @media(max-width:600px){
-      section{padding:1rem .6rem .7rem;max-width:98vw}
+      section{padding:1rem .9rem .8rem}
+      .snapshot{grid-template-columns:1fr}
       .nav-toggle{display:block}
-      .nav-links{display:none;position:fixed;top:44px;left:0;right:0;background:rgba(8,8,14,.99);border-bottom:1px solid var(--border);padding:.8rem 1rem 1.2rem;gap:.1rem;flex-direction:column;max-height:72vh;overflow-y:auto}
+      .nav-links{display:none;position:fixed;top:43px;left:0;right:0;background:rgba(7,7,13,.99);border-bottom:1px solid var(--border);padding:.8rem 1.1rem 1.2rem;gap:.05rem;flex-direction:column;max-height:72vh;overflow-y:auto}
       nav.open .nav-links{display:flex}
-      .nav-links a{padding:.55rem .2rem;font-size:.92rem;width:100%}
-      h1{font-size:1.35rem}
+      .nav-links a{padding:.55rem .1rem;font-size:.9rem;width:100%}
+      h1{font-size:1.4rem}
       .kpi-row{gap:1.2rem}
     }
   </style>
@@ -123,88 +123,81 @@
     </div>
   </nav>
 
-  <!-- ══ HOME ══ -->
+  <!-- HOME -->
   <section id="home" class="section active">
     <h1>Riccardo Scalia</h1>
+    <p style="font-size:.79rem;color:var(--muted);margin-bottom:1.6rem;font-weight:300">MSc Corporate Finance, LUISS · Erasmus, Utrecht · Investment Analysis</p>
 
-    <p class="intro-role">
-      <span>MSc Corporate Finance</span>, LUISS University of Rome &nbsp;·&nbsp;
-      <span>Erasmus</span>, Utrecht University &nbsp;·&nbsp;
-      Currently at <span>Clessidra Capital Credit SGR</span>
-    </p>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2026 — Present</div>
-        <div class="tl-title">Clessidra Capital Credit SGR — CPD II</div>
-        <div class="tl-role">Investment Analysis</div>
-        <div class="tl-sub">Supporting early-stage evaluation of investment opportunities within the fund. Developing in parallel an Asset Pricing thesis on empirical drivers of risk premia in gold and silver markets.</div>
+    <!-- At a glance: current role + last project -->
+    <h2>At a Glance</h2>
+    <div class="snapshot">
+      <div class="snap-card">
+        <div class="snap-label">Current Position</div>
+        <div class="snap-title">Clessidra Capital Credit SGR — CPD II</div>
+        <div class="snap-detail">Investment Analysis · Milan, 2026</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2025 — Milan</div>
-        <div class="tl-title">BBVA CIB — Global Relationship &amp; Coverage</div>
-        <div class="tl-role">Syndication &amp; Coverage, Summer Analyst</div>
-        <div class="tl-sub">Structured and analysed financing transactions for multinational corporates. Exposure to syndicated markets, cross-border execution teams, and risk monitoring.</div>
+      <div class="snap-card">
+        <div class="snap-label">Latest Project</div>
+        <div class="snap-title">Global Rates Signal Lab</div>
+        <div class="snap-detail">Duration, Carry &amp; Cross-Market Allocation · Fixed Income · 2026</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2024 — 2026</div>
-        <div class="tl-title">LUISS University of Rome</div>
-        <div class="tl-role">MSc Corporate Finance</div>
-        <div class="tl-sub">Asset Pricing, Valuation, Risk Management, Quantitative Methods. FT-ranked 20th in Europe (2025). Thesis on gold and silver markets.</div>
+      <div class="snap-card">
+        <div class="snap-label">Academic Focus</div>
+        <div class="snap-title">Asset Pricing Thesis</div>
+        <div class="snap-detail">Gold &amp; Silver — Empirical drivers of risk premia · LUISS, 2026</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2023 — 2024</div>
-        <div class="tl-title">Utrecht University</div>
-        <div class="tl-role">Erasmus Exchange</div>
-        <div class="tl-sub">Quantitative Finance, Econometrics, Advanced Corporate Finance.</div>
+      <div class="snap-card">
+        <div class="snap-label">Previous Experience</div>
+        <div class="snap-title">BBVA CIB — Global Relationship &amp; Coverage</div>
+        <div class="snap-detail">Syndication &amp; Coverage · Milan, 2025</div>
       </div>
     </div>
 
     <hr class="divider">
 
-    <!-- Subtle KPI row after the bio -->
+    <!-- Brief bio -->
+    <h2>About</h2>
+
+    <div class="sailing-line">
+      <span class="sailing-icon">⚓ Sailing</span>
+      <p style="margin:0">has shaped the way Riccardo approaches uncertainty — composure under pressure, disciplined reading of conditions, and decisiveness when it counts. The same principles apply to markets.</p>
+    </div>
+
+    <p>Riccardo is pursuing a Corporate Finance path at LUISS University of Rome, with an international track at Utrecht University. His academic work focuses on asset pricing, quantitative methods, and risk — with a Master's thesis on empirical drivers of risk premia in gold and silver markets.</p>
+
+    <p>Alongside professional work, he manages a long-term personal investment portfolio — a structured exercise in macro thesis formulation, risk monitoring, and allocation across asset classes. Contemporary art, design, and cinema inform the same attention to proportion and detail that he brings to analytical work.</p>
+
+    <hr class="divider">
+
+    <!-- Subtle markers -->
     <div class="kpi-row">
-      <div class="kpi-item"><div class="kpi-val">Summa</div><div class="kpi-lbl">BSc Cum Laude</div></div>
-      <div class="kpi-item"><div class="kpi-val">FT 20th</div><div class="kpi-lbl">MSc in Europe</div></div>
-      <div class="kpi-item"><div class="kpi-val">5+</div><div class="kpi-lbl">Markets & Asset Classes</div></div>
-      <div class="kpi-item"><div class="kpi-val">3</div><div class="kpi-lbl">Countries Worked In</div></div>
+      <div><div class="kpi-val">Summa</div><div class="kpi-lbl">BSc Cum Laude</div></div>
+      <div><div class="kpi-val">FT 20th</div><div class="kpi-lbl">MSc in Europe</div></div>
+      <div><div class="kpi-val">110L</div><div class="kpi-lbl">Thesis grade</div></div>
+      <div><div class="kpi-val">2</div><div class="kpi-lbl">Countries, intern'l exp.</div></div>
     </div>
 
-    <hr class="divider">
-
-    <div class="note">
-      <p>Alongside academic and professional work, I manage a long-term personal investment portfolio — a structured exercise in macro thesis formulation, risk monitoring, and allocation across asset classes.</p>
-    </div>
-
-    <p style="margin-top:1.2rem;font-size:.77rem;color:var(--muted)">Sailing has shaped the way I approach uncertainty — composure under pressure, disciplined reading of conditions, and decisiveness when it counts.</p>
-
-    <p style="margin-top:1.1rem"><a href="#projects" class="button" data-section="projects">View Projects</a></p>
-
-    <img src="Home.jpg" alt="Bramante Staircase" style="display:block;margin:2rem auto 0;width:62%;height:400px;object-fit:cover;object-position:center;border-radius:3px;opacity:.88">
-    <p style="text-align:center;font-size:.58rem;color:#272e3d;margin-top:.3rem;margin-bottom:0;letter-spacing:.4px">Bramante Staircase, Vatican Museums</p>
+    <img src="Home.jpg" alt="Bramante Staircase" style="display:block;margin:2rem auto 0;width:60%;height:380px;object-fit:cover;object-position:center;border-radius:2px;opacity:.85">
+    <p style="text-align:center;font-size:.57rem;color:#1e2330;margin-top:.28rem;letter-spacing:.4px">Bramante Staircase, Vatican Museums</p>
   </section>
 
-  <!-- ══ EXPERIENCE ══ -->
+  <!-- EXPERIENCE -->
   <section id="experience" class="section">
     <h2>Experience</h2>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">Jan – Jun 2026 &nbsp;·&nbsp; Milan</div>
+        <div class="tl-date">Jan – Jun 2026 · Milan</div>
         <div class="tl-title">Clessidra Capital Credit SGR — CPD II</div>
         <div class="tl-role"><span class="tag">Private Markets</span><span class="tag">Investments</span></div>
         <div class="tl-sub">
-          Joined CPD II shortly after its first closing. Supporting the investment team in early-stage evaluation of opportunities: initial screening, investment analysis, and preparation of internal materials for diligence and investment discussions. Market mapping and comparable analysis as required.<br><br>
-          In parallel, developing a Master's thesis in Asset Pricing on gold and silver markets, focused on empirical drivers of risk premia and cross-asset dynamics.
+          Joined CPD II shortly after its first closing. Supported the investment team in early-stage evaluation of opportunities: initial screening, investment analysis, and preparation of internal materials for diligence and investment discussions. Market mapping and comparable analysis as required.<br><br>
+          In parallel, developed a Master's thesis in Asset Pricing on gold and silver markets, focused on empirical drivers of risk premia and cross-asset dynamics.
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">Jun – Aug 2025 &nbsp;·&nbsp; Milan</div>
+        <div class="tl-date">Jun – Aug 2025 · Milan</div>
         <div class="tl-title">BBVA CIB — Global Relationship &amp; Coverage</div>
         <div class="tl-role"><span class="tag">Syndication</span><span class="tag">Coverage</span></div>
         <div class="tl-sub">
@@ -215,7 +208,7 @@
     </div>
   </section>
 
-  <!-- ══ PROJECTS ══ -->
+  <!-- PROJECTS -->
   <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="timeline">
@@ -226,7 +219,7 @@
         <div class="tl-role"><span class="tag">Fixed Income</span><span class="tag">Systematic</span></div>
         <div class="tl-sub">
           Multi-country fixed income project testing systematic duration timing and allocation signals across Japan, US, UK, and Germany. Bond momentum and carry signals (10Y minus 1M yield spread) under simple risk controls. Performance in yield-space P&amp;L with optional FX-hedged version. Attribution by country, aggregation, and bull/bear regime.<br>
-          <span style="color:var(--text);font-size:.74rem">Tools:</span> Excel, J.P. Morgan Investment Strategies No. 74. &nbsp;<span style="color:var(--text);font-size:.74rem">Outcome:</span> Reusable research pipeline with full attribution and regime diagnostics.<br>
+          <span style="color:var(--text);font-size:.73rem">Tools:</span> Excel, J.P. Morgan Investment Strategies No. 74. &nbsp;<span style="color:var(--text);font-size:.73rem">Outcome:</span> Reusable pipeline with full attribution and regime diagnostics.<br>
           <a href="FIM-PJ.pdf" download class="button">View Extract</a>
         </div>
       </div>
@@ -237,7 +230,7 @@
         <div class="tl-role"><span class="tag">Python</span><span class="tag">Portfolio Analytics</span></div>
         <div class="tl-sub">
           Fully automated analytics system for a multi-asset portfolio. FIFO engine, XIRR computation, real-time pricing via Yahoo Finance, risk metrics, equity-curve modelling, category analytics. HTML reports generated three times daily via GitHub Actions.<br>
-          <span style="color:var(--text);font-size:.74rem">Outcome:</span> Production-grade monitoring with live reporting and continuous risk tracking.
+          <span style="color:var(--text);font-size:.73rem">Outcome:</span> Production-grade monitoring with live reporting and continuous risk tracking.
         </div>
       </div>
       <div class="tl-item">
@@ -247,7 +240,7 @@
         <div class="tl-role"><span class="tag">Valuation</span><span class="tag">Advisory</span></div>
         <div class="tl-sub">
           Transaction model for a simulated advisory mandate: DCF, trading and transaction multiples, sensitivity analysis, capital structure, pitch presentation.<br>
-          <span style="color:var(--text);font-size:.74rem">Tools:</span> Excel, Bloomberg, Mergermarket, Dealogic. &nbsp;<span style="color:var(--text);font-size:.74rem">Outcome:</span> Best project among 30 teams.<br>
+          <span style="color:var(--text);font-size:.73rem">Tools:</span> Excel, Bloomberg, Mergermarket, Dealogic. &nbsp;<span style="color:var(--text);font-size:.73rem">Outcome:</span> Best project among 30 teams.<br>
           <a href="Rothschild &amp; Co. – M&amp;A Business Game.jpg" download class="button">View Extract</a>
         </div>
       </div>
@@ -258,7 +251,7 @@
         <div class="tl-role"><span class="tag">Equity</span><span class="tag">Valuation</span></div>
         <div class="tl-sub">
           Valuation using trading multiples and the Residual Earnings Model (REM). Capital structure, growth assumptions, financial positioning.<br>
-          <span style="color:var(--text);font-size:.74rem">Outcome:</span> Top-ranked presentation in class.<br>
+          <span style="color:var(--text);font-size:.73rem">Outcome:</span> Top-ranked presentation in class.<br>
           <a href="Salvatore Ferragamo – Equity Valuation Project.jpg" download class="button">View Extract</a>
         </div>
       </div>
@@ -268,15 +261,15 @@
         <div class="tl-title">Banco Popular — Resolution Case Study</div>
         <div class="tl-role"><span class="tag">Regulation</span><span class="tag">Banking</span></div>
         <div class="tl-sub">
-          Analysis of Banco Popular's resolution and acquisition by Santander. BRRD implementation, bail-in mechanics, creditor hierarchy, European crisis management.<br>
-          <span style="color:var(--text);font-size:.74rem">Outcome:</span> Final thesis, awarded 110 cum laude.<br>
+          Analysis of Banco Popular's resolution and acquisition by Santander. BRRD, bail-in mechanics, creditor hierarchy, European crisis management.<br>
+          <span style="color:var(--text);font-size:.73rem">Outcome:</span> Final thesis, awarded 110 cum laude.<br>
           <a href="Banco Popular – Resolution Case Study.jpg" download class="button">View Extract</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ EDUCATION ══ -->
+  <!-- EDUCATION -->
   <section id="education" class="section">
     <h2>Education</h2>
     <div class="timeline">
@@ -284,27 +277,27 @@
         <div class="tl-dot"></div>
         <div class="tl-date">2024 – 2026</div>
         <div class="tl-title">LUISS University of Rome — MSc Corporate Finance</div>
-        <div class="tl-role">GPA 29.3 / 30 &nbsp;·&nbsp; FT-ranked 20th in Europe (2025)</div>
-        <div class="tl-sub">Asset Pricing, Business Valuation, Risk Management, Quantitative Methods for Finance, Investment Banking. Thesis in Asset Pricing on gold and silver markets — empirical drivers of risk premia.</div>
+        <div class="tl-role">FT-ranked 20th in Europe (2025)</div>
+        <div class="tl-sub">Asset Pricing, Business Valuation, Risk Management, Quantitative Methods, Investment Banking. Thesis on empirical drivers of risk premia in gold and silver markets.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">2023 – 2024</div>
         <div class="tl-title">Utrecht University — Erasmus Exchange</div>
-        <div class="tl-role">GPA 30 / 30</div>
-        <div class="tl-sub">Quantitative Finance, Advanced Corporate Finance, Econometrics. Cross-cultural and data-driven approach to financial analysis.</div>
+        <div class="tl-role">Quantitative Finance · Netherlands</div>
+        <div class="tl-sub">Advanced Corporate Finance, Econometrics. Rigorous quantitative and data-driven approach to financial analysis.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">2021 – 2024</div>
         <div class="tl-title">LUISS University of Rome — BSc Economics &amp; Management</div>
-        <div class="tl-role">Summa Cum Laude &nbsp;·&nbsp; GPA 28.6 / 30</div>
-        <div class="tl-sub">Economics, quantitative methods, financial accounting, strategy. Final thesis on the resolution of Banco Popular — 110 cum laude.</div>
+        <div class="tl-role">Summa Cum Laude</div>
+        <div class="tl-sub">Economics, quantitative methods, financial accounting, strategy. Thesis on Banco Popular resolution — 110 cum laude.</div>
       </div>
     </div>
   </section>
 
-  <!-- ══ SKILLS ══ -->
+  <!-- SKILLS -->
   <section id="skills-and-certifications" class="section">
     <h2>Skills &amp; Initiatives</h2>
     <div class="timeline">
@@ -312,14 +305,14 @@
         <div class="tl-dot"></div>
         <div class="tl-date">Technical</div>
         <div class="tl-title">Tools &amp; Languages</div>
-        <div class="tl-sub">Advanced Excel (modelling, scenario analysis, risk metrics) &nbsp;·&nbsp; Advanced PowerPoint &nbsp;·&nbsp; Python (Pandas, Matplotlib, GitHub Actions) &nbsp;·&nbsp; HTML / CSS / JS &nbsp;·&nbsp; VS Code &nbsp;·&nbsp; GitHub</div>
+        <div class="tl-sub">Advanced Excel (modelling, scenario analysis, risk metrics) · Advanced PowerPoint · Python (Pandas, Matplotlib, GitHub Actions) · HTML / CSS / JS · VS Code · GitHub</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Initiatives</div>
         <div class="tl-title">Personal Projects</div>
         <div class="tl-sub">
-          Manage a long-term investment portfolio across asset classes — capital allocation, risk monitoring, and macro thesis formulation.<br>
+          Manages a long-term investment portfolio across asset classes — capital allocation, risk monitoring, macro thesis formulation.<br>
           Hawk I — automated Python system: FIFO engine, XIRR, real-time pricing via YFinance, risk metrics, equity-curve modelling, periodic HTML reporting via GitHub Actions.
         </div>
       </div>
@@ -332,26 +325,26 @@
     </div>
     <hr class="divider">
     <h2>Languages</h2>
-    <p style="font-size:.79rem"><strong>Italian</strong> — Native &nbsp;·&nbsp; <strong>English</strong> — Fluent &nbsp;·&nbsp; <strong>Spanish</strong> — Intermediate &nbsp;·&nbsp; <strong>French</strong> — Elementary</p>
+    <p><strong>Italian</strong> — Native &nbsp;·&nbsp; <strong>English</strong> — Fluent &nbsp;·&nbsp; <strong>Spanish</strong> — Intermediate &nbsp;·&nbsp; <strong>French</strong> — Elementary</p>
   </section>
 
-  <!-- ══ CONTACT ══ -->
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <h2>Contact</h2>
-    <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.6rem;font-weight:300">Open to connecting with professionals and peers who share a genuine interest in markets, investment analysis, and long-term value creation.</p>
+    <p style="color:var(--muted);margin-bottom:1.5rem;font-weight:300">Open to connecting with professionals and peers who share a genuine interest in markets, investment analysis, and long-term value creation.</p>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Email</div>
-        <div class="tl-sub"><a href="mailto:rscaliawork@gmail.com" style="color:var(--gold);text-decoration:none;font-size:.82rem">rscaliawork@gmail.com</a></div>
+        <div class="tl-sub"><a href="mailto:rscaliawork@gmail.com" style="color:#6d9fd8;text-decoration:none">rscaliawork@gmail.com</a></div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">LinkedIn</div>
-        <div class="tl-sub"><a href="https://www.linkedin.com/in/riccardoscalia" target="_blank" style="color:var(--gold);text-decoration:none;font-size:.82rem">linkedin.com/in/riccardoscalia</a></div>
+        <div class="tl-sub"><a href="https://www.linkedin.com/in/riccardoscalia" target="_blank" style="color:#6d9fd8;text-decoration:none">linkedin.com/in/riccardoscalia</a></div>
       </div>
     </div>
-    <div style="margin-top:2rem"><a href="RiccardoScalia_CV.pdf" download class="button">Download CV</a></div>
+    <div style="margin-top:1.8rem"><a href="RiccardoScalia_CV.pdf" download class="button">Download CV</a></div>
   </section>
 
   <script>
