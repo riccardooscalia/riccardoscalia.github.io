@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riccardo Scalia | Portfolio</title>
-  <meta name="description" content="Riccardo Scalia – Finance professional focused on investment analysis, capital markets and asset pricing. MSc Corporate Finance LUISS, Erasmus Utrecht.">
+  <meta name="description" content="Riccardo Scalia – Investment analysis, capital markets and asset pricing. MSc Corporate Finance LUISS, Erasmus Utrecht.">
   <meta property="og:title" content="Riccardo Scalia | Finance Portfolio">
-  <meta property="og:description" content="Investment Analysis · Capital Markets · Asset Pricing.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -14,14 +13,14 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg:      #03091a;
-      --bg2:     #050d24;
-      --border:  #0d1e3d;
-      --navy:    #004aad;
-      --blue:    #4d87cc;
-      --white:   #f0f4fa;
-      --grey:    #8fa3bb;
-      --dim:     #3d5570;
+      --bg:     #020b1e;
+      --bg2:    #040f28;
+      --border: #0a1d3f;
+      --navy:   #004aad;
+      --blue:   #4d87cc;
+      --white:  #eef2f9;
+      --grey:   #8496ae;
+      --dim:    #35496a;
     }
 
     body {
@@ -29,42 +28,42 @@
       background: var(--bg);
       color: var(--grey);
       font-size: 14px;
-      line-height: 1;
       overflow-x: hidden;
     }
 
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; width: 100%;
-      background: rgba(3,9,26,.96);
+      background: rgba(2,11,30,.97);
       border-bottom: 1px solid var(--border);
       display: flex; justify-content: center; align-items: center;
-      padding: .7rem 1.5rem;
-      z-index: 999; backdrop-filter: blur(12px);
+      padding: .7rem 2rem;
+      z-index: 999; backdrop-filter: blur(10px);
     }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     nav a {
       color: var(--dim); text-decoration: none;
-      font-size: .82rem; font-weight: 400; letter-spacing: .3px;
-      padding: .25rem 0; border-bottom: 1px solid transparent;
+      font-size: .81rem; font-weight: 400; letter-spacing: .25px;
+      padding: .25rem 0;
+      border-bottom: 1px solid transparent;
       transition: color .15s, border-color .15s;
     }
     nav a:hover { color: var(--white); }
     nav a.active-link { color: var(--white); border-bottom-color: var(--navy); }
-
-    .nav-toggle { display: none; background: transparent; border: none; padding: .4rem; cursor: pointer; }
+    .nav-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: .3rem; }
     .nav-toggle-bar { display: block; width: 20px; height: 1.5px; background: var(--grey); margin: 4px 0; transition: transform .2s, opacity .2s; }
     nav.open .nav-toggle-bar:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
     nav.open .nav-toggle-bar:nth-child(2) { opacity: 0; }
     nav.open .nav-toggle-bar:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
-    /* ── SECTIONS ── */
+    /* ── LAYOUT — same for all sections ── */
     section {
+      width: 100%;
       max-width: 720px;
       margin: 0 auto;
-      padding: 5.5rem 1.5rem 4rem;
+      padding: 5.5rem 2rem 4rem;
       min-height: 100vh;
-      animation: fadeIn .35s ease forwards;
+      animation: fadeIn .3s ease forwards;
     }
     .section { display: none; }
     .active  { display: block; }
@@ -72,36 +71,30 @@
     /* ── TYPE ── */
     h1 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2rem; font-weight: 400;
-      color: var(--white); letter-spacing: .2px;
-      margin-bottom: .5rem;
+      font-size: 1.9rem; font-weight: 400;
+      color: var(--white); letter-spacing: .15px;
+      margin-bottom: .4rem;
     }
     .subtitle {
-      font-size: .8rem; color: var(--dim);
-      font-weight: 300; letter-spacing: .2px;
-      margin-bottom: 2.5rem;
+      font-size: .78rem; color: var(--dim);
+      font-weight: 300; margin-bottom: 2.5rem;
     }
     h2 {
-      font-size: .65rem; font-weight: 500;
+      font-size: .63rem; font-weight: 500;
       color: var(--navy); letter-spacing: 1.4px;
       text-transform: uppercase;
-      margin: 2.5rem 0 1.2rem;
+      margin: 2.2rem 0 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--border);
     }
-    h2:first-of-type { margin-top: 0; }
     p {
-      font-size: .8rem; color: var(--grey);
+      font-size: .79rem; color: var(--grey);
       line-height: 1.78; font-weight: 300;
-      margin-bottom: .75rem;
+      margin-bottom: .7rem;
     }
     p:last-child { margin-bottom: 0; }
 
-    /* ── RULE ── */
-    hr {
-      border: none; border-top: 1px solid var(--border);
-      margin: 2rem 0;
-    }
-
-    /* ── SNAPSHOT GRID ── */
+    /* ── SNAPSHOT GRID (home) ── */
     .snapshot {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -110,100 +103,100 @@
       border: 1px solid var(--border);
       border-radius: 3px;
       overflow: hidden;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .snap {
       background: var(--bg2);
-      padding: .9rem 1.1rem;
+      padding: .9rem 1rem;
     }
     .snap-label {
-      font-size: .58rem; font-weight: 500;
+      font-size: .57rem; font-weight: 500;
       letter-spacing: 1px; text-transform: uppercase;
-      color: var(--navy); margin-bottom: .4rem;
+      color: var(--navy); margin-bottom: .35rem;
     }
     .snap-title {
-      font-size: .82rem; color: var(--white);
-      font-weight: 400; line-height: 1.4;
-      margin-bottom: .2rem;
+      font-size: .81rem; color: var(--white);
+      font-weight: 400; line-height: 1.35;
+      margin-bottom: .18rem;
     }
     .snap-detail {
-      font-size: .72rem; color: var(--dim);
-      font-weight: 300; line-height: 1.5;
+      font-size: .7rem; color: var(--dim);
+      font-weight: 300; line-height: 1.45;
     }
 
-    /* ── TIMELINE ── */
-    .timeline { padding-left: 1.2rem; position: relative; }
-    .timeline::before {
-      content: ''; position: absolute;
-      left: 0; top: .5rem; bottom: .5rem;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--navy), var(--border));
+    /* ── CARD — used in all sections ── */
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1.1rem 1.2rem;
+      margin-bottom: .75rem;
     }
-    .tl-item { position: relative; margin-bottom: 2rem; }
-    .tl-item:last-child { margin-bottom: 0; }
-    .tl-dot {
-      position: absolute; left: -1.56rem; top: .42rem;
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--navy);
-      box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--border);
+    .card:last-child { margin-bottom: 0; }
+    .card-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline; margin-bottom: .35rem; gap: 1rem;
     }
-    .tl-date {
+    .card-title {
+      font-size: .84rem; color: var(--white);
+      font-weight: 500; line-height: 1.3;
+    }
+    .card-date {
       font-size: .63rem; color: var(--dim);
-      letter-spacing: .5px; text-transform: uppercase;
-      margin-bottom: .2rem;
+      letter-spacing: .4px; white-space: nowrap; flex-shrink: 0;
     }
-    .tl-title {
-      font-size: .85rem; color: var(--white);
-      font-weight: 500; margin-bottom: .15rem;
+    .card-role {
+      font-size: .74rem; color: var(--blue);
+      font-weight: 300; margin-bottom: .5rem;
     }
-    .tl-role {
-      font-size: .75rem; color: var(--blue);
-      font-weight: 300; margin-bottom: .4rem;
-    }
-    .tl-body {
+    .card-body {
       font-size: .77rem; color: var(--grey);
       line-height: 1.76; font-weight: 300;
+    }
+    .card-body p { font-size: .77rem; margin-bottom: .4rem; }
+
+    /* ── TAG ── */
+    .tag {
+      display: inline-block;
+      font-size: .59rem; font-weight: 500; letter-spacing: .75px;
+      color: var(--blue);
+      border: 1px solid var(--border);
+      border-radius: 2px; padding: .07rem .38rem;
+      margin-right: .3rem; text-transform: uppercase;
+      margin-bottom: .45rem;
     }
 
     /* ── BUTTON ── */
     a.button {
-      display: inline-block; margin-top: .7rem;
-      padding: .32rem .85rem;
+      display: inline-block; margin-top: .65rem;
+      padding: .3rem .82rem;
       border: 1px solid var(--border);
       color: var(--blue); background: transparent;
-      font-size: .72rem; font-weight: 400; letter-spacing: .4px;
+      font-size: .71rem; font-weight: 400; letter-spacing: .4px;
       text-decoration: none; border-radius: 2px;
       transition: border-color .15s, color .15s;
     }
     a.button:hover { border-color: var(--navy); color: var(--white); }
 
-    /* ── TAG ── */
-    .tag {
-      display: inline-block;
-      font-size: .6rem; font-weight: 500; letter-spacing: .8px;
-      color: var(--blue);
-      border: 1px solid var(--border);
-      border-radius: 2px; padding: .08rem .4rem;
-      margin-right: .3rem; text-transform: uppercase;
-    }
-
     /* ── MARKERS ── */
     .markers {
       display: flex; gap: 2.5rem; flex-wrap: wrap;
-      padding: 1.2rem 0;
+      padding: 1.1rem 0 .2rem;
     }
     .marker-val {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem; color: var(--white); font-weight: 400;
+      font-size: 1.05rem; color: var(--white); font-weight: 400;
     }
     .marker-lbl {
-      font-size: .6rem; color: var(--dim);
-      letter-spacing: .7px; text-transform: uppercase; margin-top: .15rem;
+      font-size: .58rem; color: var(--dim);
+      letter-spacing: .65px; text-transform: uppercase; margin-top: .12rem;
     }
 
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
     footer {
-      text-align: center; padding: 1.5rem;
-      font-size: .65rem; color: var(--border);
+      text-align: center; padding: 1.4rem;
+      font-size: .63rem; color: var(--border);
       border-top: 1px solid var(--border);
       background: var(--bg);
     }
@@ -211,18 +204,19 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; } }
 
     @media (max-width: 600px) {
-      section { padding: 4.5rem 1rem 3rem; }
+      section { padding: 4.5rem 1.1rem 3rem; }
       .snapshot { grid-template-columns: 1fr; }
       .nav-toggle { display: block; }
       .nav-links {
-        display: none; position: fixed; top: 42px; left: 0; right: 0;
-        background: rgba(3,9,26,.99); border-bottom: 1px solid var(--border);
-        padding: .9rem 1.2rem 1.3rem; flex-direction: column; gap: .1rem;
+        display: none; position: fixed; top: 41px; left: 0; right: 0;
+        background: rgba(2,11,30,.99); border-bottom: 1px solid var(--border);
+        padding: .9rem 1.3rem 1.3rem; flex-direction: column; gap: .05rem;
       }
       nav.open .nav-links { display: flex; }
-      .nav-links a { padding: .55rem 0; font-size: .9rem; }
-      h1 { font-size: 1.5rem; }
-      .markers { gap: 1.5rem; }
+      .nav-links a { padding: .55rem 0; font-size: .88rem; }
+      h1 { font-size: 1.45rem; }
+      .card-header { flex-direction: column; gap: .15rem; }
+      .markers { gap: 1.4rem; }
     }
   </style>
 </head>
@@ -245,13 +239,12 @@
 </nav>
 
 
-<!-- ══ HOME ══ -->
+<!-- HOME -->
 <section id="home" class="section active">
 
   <h1>Riccardo Scalia</h1>
   <p class="subtitle">Investment Analysis &nbsp;·&nbsp; Capital Markets &nbsp;·&nbsp; Asset Pricing</p>
 
-  <!-- At a glance -->
   <div class="snapshot">
     <div class="snap">
       <div class="snap-label">Current</div>
@@ -277,11 +270,11 @@
 
   <h2>About</h2>
 
-  <p>Sailing has been central to how Riccardo thinks and decides. Managing a boat under pressure taught him to read conditions carefully, act with composure, and commit when it matters. The same principles guide his approach to markets and analysis.</p>
+  <p>Sailing has been central to the way I think and decide. Managing a boat under pressure taught me to read conditions carefully, act with composure, and commit when it matters. The same principles guide my approach to markets and analysis.</p>
 
-  <p>Riccardo is completing his MSc in Corporate Finance at LUISS University of Rome, following an Erasmus semester at Utrecht University focused on Quantitative Finance. His academic work centres on asset pricing, risk, and quantitative methods — with a thesis on empirical drivers of risk premia in gold and silver markets.</p>
+  <p>I am completing my MSc in Corporate Finance at LUISS University of Rome, following an Erasmus semester at Utrecht University focused on Quantitative Finance. My academic work centres on asset pricing, risk, and quantitative methods — with a thesis on empirical drivers of risk premia in gold and silver markets.</p>
 
-  <p>In parallel, he manages a personal investment portfolio as a structured exercise in capital allocation, risk monitoring, and macro thesis formulation. Contemporary art and design inform the same attention to clarity and proportion he brings to financial work.</p>
+  <p>In parallel, I manage a personal investment portfolio as a structured exercise in capital allocation, risk monitoring, and macro thesis formulation. Contemporary art and design inform the same attention to clarity and proportion I bring to financial work.</p>
 
   <hr>
 
@@ -293,196 +286,224 @@
   </div>
 
   <img src="Home.jpg" alt="Bramante Staircase"
-    style="display:block;margin:2.5rem auto 0;width:58%;height:360px;object-fit:cover;border-radius:2px;opacity:.82">
-  <p style="text-align:center;font-size:.57rem;color:var(--border);margin-top:.3rem;letter-spacing:.5px">Bramante Staircase, Vatican Museums</p>
+    style="display:block;margin:2.5rem auto 0;width:56%;height:340px;object-fit:cover;border-radius:2px;opacity:.8">
+  <p style="text-align:center;font-size:.55rem;color:var(--dim);margin-top:.28rem;letter-spacing:.5px">Bramante Staircase, Vatican Museums</p>
 
 </section>
 
 
-<!-- ══ EXPERIENCE ══ -->
+<!-- EXPERIENCE -->
 <section id="experience" class="section">
   <h2>Experience</h2>
-  <div class="timeline">
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Jan – Jun 2026 · Milan</div>
-      <div class="tl-title">Clessidra Capital Credit SGR — CPD II</div>
-      <div class="tl-role"><span class="tag">Private Markets</span><span class="tag">Investment Analysis</span></div>
-      <div class="tl-body">
-        Joined CPD II shortly after its first closing. Supported the investment team in early-stage evaluation of opportunities — initial screening, investment analysis, and preparation of internal materials for diligence and investment discussions. Market mapping and comparable analysis as required.<br><br>
-        Developed in parallel a Master's thesis on empirical drivers of risk premia in gold and silver markets.
-      </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Clessidra Capital Credit SGR — CPD II</div>
+      <div class="card-date">Jan – Jun 2026 · Milan</div>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Jun – Aug 2025 · Milan</div>
-      <div class="tl-title">BBVA CIB — Global Relationship &amp; Coverage</div>
-      <div class="tl-role"><span class="tag">Syndication</span><span class="tag">Coverage</span></div>
-      <div class="tl-body">
-        Supported the origination and structuring of bilateral and syndicated financing facilities (€50–€200M) for multinational clients across industrials, automotive, oil, and energy. Contributed to approximately ten transactions for corporates with combined revenues over €60 billion.<br><br>
-        Work covered financial analysis, covenant review, peer benchmarking, and due diligence. Platforms included Dealogic, Mergermarket, and BBVA internal systems. Exposure to teams in Madrid and London.
-      </div>
+    <div class="card-role">Investment Analysis</div>
+    <div><span class="tag">Private Markets</span><span class="tag">Investments</span></div>
+    <div class="card-body">
+      <p>Joined CPD II shortly after its first closing. Supported the investment team in early-stage evaluation of opportunities — initial screening, investment analysis, and preparation of internal materials for diligence and investment discussions. Market mapping and comparable analysis as required.</p>
+      <p>Developed in parallel a Master's thesis on empirical drivers of risk premia in gold and silver markets.</p>
     </div>
-
   </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">BBVA CIB — Global Relationship &amp; Coverage</div>
+      <div class="card-date">Jun – Aug 2025 · Milan</div>
+    </div>
+    <div class="card-role">Syndication &amp; Coverage, Summer Analyst</div>
+    <div><span class="tag">Syndication</span><span class="tag">Coverage</span></div>
+    <div class="card-body">
+      <p>Supported the origination and structuring of bilateral and syndicated financing facilities (€50–€200M) for multinational clients across industrials, automotive, oil, and energy. Contributed to approximately ten transactions for corporates with combined revenues over €60 billion.</p>
+      <p>Work covered financial analysis, covenant review, peer benchmarking, and due diligence. Platforms: Dealogic, Mergermarket, BBVA internal. Exposure to teams in Madrid and London.</p>
+    </div>
+  </div>
+
 </section>
 
 
-<!-- ══ PROJECTS ══ -->
+<!-- PROJECTS -->
 <section id="projects" class="section">
   <h2>Projects</h2>
-  <div class="timeline">
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2026</div>
-      <div class="tl-title">Global Rates Signal Lab</div>
-      <div class="tl-role"><span class="tag">Fixed Income</span><span class="tag">Systematic</span></div>
-      <div class="tl-body">
-        Multi-country fixed income research project testing systematic duration timing and cross-market allocation signals across Japan, US, UK, and Germany. Bond momentum and carry signals (10Y minus 1M yield spread) under simple risk controls. Performance measured in yield-space P&amp;L with optional FX-hedged version. Attribution by country, regime, and aggregation.<br>
-        <span style="color:var(--white);font-size:.73rem">Tools:</span> Excel, J.P. Morgan Investment Strategies No. 74.<br>
-        <a href="FIM-PJ.pdf" download class="button">View Extract</a>
-      </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Global Rates Signal Lab — Duration, Carry &amp; Cross-Market Allocation</div>
+      <div class="card-date">2026</div>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2025</div>
-      <div class="tl-title">Automated Portfolio Analytics System — Hawk I</div>
-      <div class="tl-role"><span class="tag">Python</span><span class="tag">Analytics</span></div>
-      <div class="tl-body">
-        Fully automated analytics system for a multi-asset portfolio. FIFO engine, XIRR computation, real-time pricing via Yahoo Finance, risk metrics, equity-curve modelling, and category analytics. HTML reports generated three times daily via GitHub Actions.
-      </div>
+    <div class="card-role">Fixed Income Research</div>
+    <div><span class="tag">Fixed Income</span><span class="tag">Systematic</span></div>
+    <div class="card-body">
+      <p>Multi-country project testing systematic duration timing and cross-market allocation signals across Japan, US, UK, and Germany. Bond momentum and carry signals (10Y minus 1M yield spread) under simple risk controls. Performance in yield-space P&amp;L with optional FX-hedged version. Attribution by country, regime, and aggregation.</p>
+      <p>Tools: Excel, J.P. Morgan Investment Strategies No. 74.</p>
+      <a href="FIM-PJ.pdf" download class="button">View Extract</a>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2025</div>
-      <div class="tl-title">Rothschild &amp; Co. — M&amp;A Business Game</div>
-      <div class="tl-role"><span class="tag">Valuation</span><span class="tag">Advisory</span></div>
-      <div class="tl-body">
-        Transaction model for a simulated advisory mandate: DCF, trading and transaction multiples, sensitivity analysis, capital structure, pitch presentation.<br>
-        Tools: Excel, Bloomberg, Mergermarket, Dealogic. &nbsp;Outcome: best project among 30 teams.<br>
-        <a href="Rothschild &amp; Co. – M&amp;A Business Game.jpg" download class="button">View Extract</a>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2025</div>
-      <div class="tl-title">Salvatore Ferragamo — Financial Analysis</div>
-      <div class="tl-role"><span class="tag">Equity</span><span class="tag">Valuation</span></div>
-      <div class="tl-body">
-        Valuation using trading multiples and the Residual Earnings Model. Capital structure, growth assumptions, financial positioning. Top-ranked presentation in class.<br>
-        <a href="Salvatore Ferragamo – Equity Valuation Project.jpg" download class="button">View Extract</a>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2024</div>
-      <div class="tl-title">Banco Popular — Resolution Case Study</div>
-      <div class="tl-role"><span class="tag">Regulation</span><span class="tag">Banking</span></div>
-      <div class="tl-body">
-        Analysis of Banco Popular's resolution and acquisition by Santander. BRRD implementation, bail-in mechanics, creditor hierarchy, European crisis management. Final thesis — 110 cum laude.<br>
-        <a href="Banco Popular – Resolution Case Study.jpg" download class="button">View Extract</a>
-      </div>
-    </div>
-
   </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Automated Portfolio Analytics System — Hawk I</div>
+      <div class="card-date">2025</div>
+    </div>
+    <div class="card-role">Python · Personal Portfolio</div>
+    <div><span class="tag">Python</span><span class="tag">Analytics</span></div>
+    <div class="card-body">
+      <p>Fully automated analytics system for a multi-asset portfolio. FIFO engine, XIRR computation, real-time pricing via Yahoo Finance, risk metrics, equity-curve modelling, and category analytics. HTML reports generated three times daily via GitHub Actions.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Rothschild &amp; Co. — M&amp;A Business Game</div>
+      <div class="card-date">2025</div>
+    </div>
+    <div class="card-role">Advisory Simulation</div>
+    <div><span class="tag">Valuation</span><span class="tag">Advisory</span></div>
+    <div class="card-body">
+      <p>Transaction model for a simulated advisory mandate: DCF, trading and transaction multiples, sensitivity analysis, capital structure, pitch presentation. Best project among 30 teams.</p>
+      <p>Tools: Excel, Bloomberg, Mergermarket, Dealogic.</p>
+      <a href="Rothschild &amp; Co. – M&amp;A Business Game.jpg" download class="button">View Extract</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Salvatore Ferragamo — Financial Analysis</div>
+      <div class="card-date">2025</div>
+    </div>
+    <div class="card-role">Equity Valuation</div>
+    <div><span class="tag">Equity</span><span class="tag">Valuation</span></div>
+    <div class="card-body">
+      <p>Valuation using trading multiples and the Residual Earnings Model. Capital structure, growth assumptions, financial positioning. Top-ranked presentation in class.</p>
+      <a href="Salvatore Ferragamo – Equity Valuation Project.jpg" download class="button">View Extract</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Banco Popular — Resolution Case Study</div>
+      <div class="card-date">2024</div>
+    </div>
+    <div class="card-role">Regulatory Analysis</div>
+    <div><span class="tag">Regulation</span><span class="tag">Banking</span></div>
+    <div class="card-body">
+      <p>Analysis of Banco Popular's resolution and acquisition by Santander. BRRD implementation, bail-in mechanics, creditor hierarchy, European crisis management. Final thesis — 110 cum laude.</p>
+      <a href="Banco Popular – Resolution Case Study.jpg" download class="button">View Extract</a>
+    </div>
+  </div>
+
 </section>
 
 
-<!-- ══ EDUCATION ══ -->
+<!-- EDUCATION -->
 <section id="education" class="section">
   <h2>Education</h2>
-  <div class="timeline">
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2024 – 2026</div>
-      <div class="tl-title">LUISS University of Rome — MSc Corporate Finance</div>
-      <div class="tl-role">FT-ranked 20th in Europe (2025)</div>
-      <div class="tl-body">Asset Pricing, Business Valuation, Risk Management, Quantitative Methods, Investment Banking. Thesis on empirical drivers of risk premia in gold and silver markets.</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">LUISS University of Rome — MSc Corporate Finance</div>
+      <div class="card-date">2024 – 2026</div>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2023 – 2024</div>
-      <div class="tl-title">Utrecht University — Erasmus Exchange</div>
-      <div class="tl-role">Quantitative Finance · Netherlands</div>
-      <div class="tl-body">Advanced Corporate Finance, Econometrics. Rigorous quantitative and data-driven approach to financial analysis.</div>
+    <div class="card-role">FT-ranked 20th in Europe (2025)</div>
+    <div class="card-body">
+      <p>Asset Pricing, Business Valuation, Risk Management, Quantitative Methods, Investment Banking. Thesis on empirical drivers of risk premia in gold and silver markets.</p>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2021 – 2024</div>
-      <div class="tl-title">LUISS University of Rome — BSc Economics &amp; Management</div>
-      <div class="tl-role">Summa Cum Laude</div>
-      <div class="tl-body">Economics, quantitative methods, financial accounting, strategy. Thesis on Banco Popular resolution — 110 cum laude.</div>
-    </div>
-
   </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Utrecht University — Erasmus Exchange</div>
+      <div class="card-date">2023 – 2024</div>
+    </div>
+    <div class="card-role">Quantitative Finance · Netherlands</div>
+    <div class="card-body">
+      <p>Advanced Corporate Finance, Econometrics. Rigorous quantitative and data-driven approach to financial analysis.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">LUISS University of Rome — BSc Economics &amp; Management</div>
+      <div class="card-date">2021 – 2024</div>
+    </div>
+    <div class="card-role">Summa Cum Laude</div>
+    <div class="card-body">
+      <p>Economics, quantitative methods, financial accounting, strategy. Thesis on Banco Popular resolution — 110 cum laude.</p>
+    </div>
+  </div>
+
 </section>
 
 
-<!-- ══ SKILLS ══ -->
+<!-- SKILLS -->
 <section id="skills-and-certifications" class="section">
   <h2>Skills &amp; Initiatives</h2>
-  <div class="timeline">
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Technical</div>
-      <div class="tl-title">Tools &amp; Languages</div>
-      <div class="tl-body">Advanced Excel — modelling, scenario analysis, risk metrics &nbsp;·&nbsp; Advanced PowerPoint &nbsp;·&nbsp; Python — Pandas, Matplotlib, GitHub Actions &nbsp;·&nbsp; HTML / CSS / JS &nbsp;·&nbsp; VS Code &nbsp;·&nbsp; GitHub</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Technical Skills</div>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Personal</div>
-      <div class="tl-title">Investment Portfolio &amp; Hawk I</div>
-      <div class="tl-body">Manages a long-term personal investment portfolio across asset classes — capital allocation, risk monitoring, and macro thesis formulation. Hawk I is a fully automated Python analytics system built to track the portfolio: FIFO engine, XIRR computation, real-time pricing via YFinance, risk metrics, equity-curve modelling, and daily HTML reporting via GitHub Actions.</div>
+    <div class="card-body">
+      <p>Advanced Excel — modelling, scenario analysis, risk metrics &nbsp;·&nbsp; Advanced PowerPoint &nbsp;·&nbsp; Python — Pandas, Matplotlib, GitHub Actions &nbsp;·&nbsp; HTML / CSS / JS &nbsp;·&nbsp; VS Code &nbsp;·&nbsp; GitHub</p>
     </div>
+  </div>
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Leadership</div>
-      <div class="tl-title">Rotaract Club LUISS</div>
-      <div class="tl-body">Director and member since 2022.</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Investment Portfolio &amp; Hawk I</div>
     </div>
+    <div class="card-body">
+      <p>I manage a long-term personal investment portfolio across asset classes — capital allocation, risk monitoring, and macro thesis formulation. Hawk I is a fully automated Python analytics system I built to track the portfolio: FIFO engine, XIRR computation, real-time pricing via YFinance, risk metrics, equity-curve modelling, and daily HTML reporting via GitHub Actions.</p>
+    </div>
+  </div>
 
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Rotaract Club LUISS</div>
+    </div>
+    <div class="card-role">Director and member since 2022</div>
   </div>
 
   <hr>
 
   <h2>Languages</h2>
-  <p>Italian — Native &nbsp;·&nbsp; English — Fluent &nbsp;·&nbsp; Spanish — Intermediate &nbsp;·&nbsp; French — Elementary</p>
+
+  <div class="card">
+    <div class="card-body">
+      <p>Italian — Native &nbsp;·&nbsp; English — Fluent &nbsp;·&nbsp; Spanish — Intermediate &nbsp;·&nbsp; French — Elementary</p>
+    </div>
+  </div>
+
 </section>
 
 
-<!-- ══ CONTACT ══ -->
+<!-- CONTACT -->
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <p>Open to connecting with professionals and peers who share a genuine interest in markets, investment analysis, and long-term value creation.</p>
-  <div class="timeline" style="margin-top:1.5rem">
+  <p style="margin-bottom:1.5rem">Open to connecting with professionals and peers who share a genuine interest in markets, investment analysis, and long-term value creation.</p>
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Email</div>
-      <div class="tl-body"><a href="mailto:rscaliawork@gmail.com" style="color:var(--blue);text-decoration:none">rscaliawork@gmail.com</a></div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Email</div>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">LinkedIn</div>
-      <div class="tl-body"><a href="https://www.linkedin.com/in/riccardoscalia" target="_blank" style="color:var(--blue);text-decoration:none">linkedin.com/in/riccardoscalia</a></div>
+    <div class="card-body">
+      <a href="mailto:rscaliawork@gmail.com" style="color:var(--blue);text-decoration:none;font-size:.79rem">rscaliawork@gmail.com</a>
     </div>
-
   </div>
-  <div style="margin-top:2rem"><a href="RiccardoScalia_CV.pdf" download class="button">Download CV</a></div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">LinkedIn</div>
+    </div>
+    <div class="card-body">
+      <a href="https://www.linkedin.com/in/riccardoscalia" target="_blank" style="color:var(--blue);text-decoration:none;font-size:.79rem">linkedin.com/in/riccardoscalia</a>
+    </div>
+  </div>
+
+  <div style="margin-top:1.8rem"><a href="RiccardoScalia_CV.pdf" download class="button">Download CV</a></div>
 </section>
 
 
