@@ -1,417 +1,967 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Riccardo Scalia</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#3a3a3a;--bg2:#424242;--bd:#525252;--bd2:#626262;--t3:#808080}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:#c8c8c8;font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riccardo Scalia</title>
+  <meta name="description" content="Riccardo Scalia – Investment Analysis, Corporate Finance, Asset Pricing. MSc LUISS, Erasmus Utrecht.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;height:54px;background:rgba(58,58,58,.97);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;z-index:1000}
-.nav-name{font-size:.75rem;font-weight:500;color:#d8d8d8;text-decoration:none}
-.nav-links{display:flex;gap:2.5rem}
-nav a{font-size:.72rem;font-weight:300;color:var(--t3);text-decoration:none;transition:color .15s}
-nav a:hover{color:#ffffff}
-.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
-.bar{display:block;width:18px;height:1px;background:#d8d8d8;margin:5px 0}
-.mob{display:none;position:fixed;top:54px;left:0;right:0;background:rgba(58,58,58,.98);border-bottom:1px solid var(--bd);flex-direction:column;z-index:999}
-nav.open~.mob{display:flex}
-.mob a{font-size:.85rem;color:#bbb;text-decoration:none;padding:.85rem 2rem;border-bottom:1px solid var(--bd)}
-.mob a:hover{background:var(--bg2);color:#fff}
+    :root {
+      --bg: #141414;
+      --bg2: #1a1a1a;
+      --border: #272727;
+      --border-light: #333;
+      --text: #a8a8a8;
+      --text-dim: #686868;
+      --text-mute: #404040;
+      --text-bright: #e6e6e6;
+      --white: #f2f2f2;
+      --accent: #8a9bb5;
+      --accent-dim: #56687f;
+      --accent-light: #a8b8cc;
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Manrope', system-ui, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-/* PAGES — :target navigation */
-.page{display:none;min-height:100vh;padding-top:54px}
-body:not(:has(.page:target)) #home{display:block}
-.page:target{display:block;animation:up .3s ease}
-@keyframes up{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+    html { scrollbar-width: none; }
+    html::-webkit-scrollbar { display: none; }
 
-/* active nav link = white */
-body:not(:has(.page:target)) nav a[href="#home"],
-#home:target~nav a[href="#home"],
-#experience:target~nav a[href="#experience"],
-#projects:target~nav a[href="#projects"],
-#education:target~nav a[href="#education"],
-#skills:target~nav a[href="#skills"],
-#contact:target~nav a[href="#contact"]{color:#ffffff;font-weight:400}
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* HOME */
-.hero{min-height:calc(100vh - 54px);display:grid;grid-template-rows:1fr auto;padding:0 3rem;position:relative}
-.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);opacity:.18}
-.hero-center{display:flex;flex-direction:column;justify-content:center;padding:4rem 0 3rem;border-bottom:1px solid var(--bd);position:relative;z-index:1}
-.hero-location{font-size:.62rem;font-weight:300;color:var(--t3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:3rem}
-.hero-name{font-size:clamp(2.2rem,5vw,4.2rem);font-weight:300;color:#e8e8e8;letter-spacing:-1.5px;line-height:1;margin-bottom:1rem}
-.hero-role{font-size:.78rem;font-weight:300;color:var(--t3);letter-spacing:.3px}
+    ::selection { background: rgba(138,155,181,0.2); color: var(--white); }
 
-/* 3. Hero bottom — elegant list, no grid lines */
-.hero-bottom{padding:2rem 0;display:flex;flex-direction:column;gap:0;position:relative;z-index:1}
-.hero-cell{padding:.9rem 0;border-bottom:1px solid var(--bd);text-decoration:none;display:flex;align-items:baseline;gap:2rem;justify-content:space-between;transition:opacity .18s}
-.hero-cell:last-child{border-bottom:none}
-.hero-cell:hover{opacity:.55}
-.hc-left{display:flex;align-items:baseline;gap:1.5rem;flex:1;min-width:0}
-.hc-label{font-size:.57rem;font-weight:400;letter-spacing:1.8px;text-transform:uppercase;color:var(--t3);white-space:nowrap;flex-shrink:0;width:7rem}
-.hc-title{font-size:.83rem;font-weight:500;color:#d8d8d8;line-height:1.3}
-.hc-sub{font-size:.68rem;color:var(--t3);font-weight:300;white-space:nowrap;flex-shrink:0}
+    /* ── GRAIN ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
 
-.home-about{background:var(--bg2);border-top:1px solid var(--bd);display:grid;grid-template-columns:1fr 1fr}
-.ab-block{padding:3rem;border-right:1px solid var(--bd)}
-.ab-block:last-child{border-right:none}
-.ab-label{font-size:.57rem;font-weight:400;letter-spacing:1.8px;text-transform:uppercase;color:var(--t3);margin-bottom:1.1rem;display:block}
-.ab-block p{font-size:.81rem;line-height:1.9;font-weight:300;color:#bbb;margin-bottom:.8rem}
-.ab-block p:last-child{margin-bottom:0}
+    /* ── NAV RAIL ── */
+    .nav-rail {
+      position: fixed; right: 2.2rem; top: 50%;
+      transform: translateY(-50%); z-index: 100;
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 0.15rem;
+    }
 
-/* INNER PAGES */
-.inner{max-width:700px;margin:0 auto;padding:4.5rem 2rem 6rem}
-.page-lbl{font-size:.57rem;font-weight:400;letter-spacing:1.8px;text-transform:uppercase;color:var(--t3);display:block;padding-bottom:.7rem;border-bottom:1px solid var(--bd);margin-bottom:2.5rem}
-.entry{padding:2rem 0;border-bottom:1px solid var(--bd)}
-.entry:first-of-type{border-top:1px solid var(--bd)}
-.entry-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.3rem;flex-wrap:wrap}
-.entry-title{font-size:.9rem;font-weight:500;color:#d8d8d8;line-height:1.3}
-.entry-date{font-size:.65rem;color:var(--t3);white-space:nowrap;font-weight:300}
-.entry-role{font-size:.7rem;color:var(--t3);font-weight:300;margin-bottom:.75rem}
-.entry-tags{margin-bottom:.75rem}
-.tag{display:inline-block;font-size:.57rem;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--t3);border:1px solid var(--bd);padding:.12rem .45rem;margin-right:.3rem;border-radius:2px}
-.entry-body{font-size:.8rem;color:#b8b8b8;line-height:1.88;font-weight:300}
-.entry-body p{margin-bottom:.5rem}
-.entry-body p:last-child{margin-bottom:0}
-.entry-stat{margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--bd);font-size:.7rem;color:var(--t3)}
-.entry-stat span{color:#c8c8c8}
-a.btn{display:inline-block;margin-top:.8rem;font-size:.68rem;font-weight:300;color:#bbb;text-decoration:none;border:1px solid var(--bd);padding:.3rem .85rem;border-radius:1px;transition:border-color .15s,color .15s}
-a.btn:hover{border-color:var(--bd2);color:#e8e8e8}
-.lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem 2rem;padding-top:.2rem}
-.lg-name{font-size:.8rem;font-weight:500;color:#d8d8d8}
-.lg-level{font-size:.67rem;color:var(--t3);font-weight:300;margin-top:.1rem}
-.contact-link{display:flex;align-items:baseline;justify-content:space-between;padding:1.3rem 0;border-bottom:1px solid var(--bd);text-decoration:none;transition:opacity .15s}
-.contact-link:first-of-type{border-top:1px solid var(--bd)}
-.contact-link:hover{opacity:.5}
-.cl-label{font-size:.8rem;font-weight:500;color:#d8d8d8}
-.cl-val{font-size:.73rem;color:var(--t3);font-weight:300}
-footer{text-align:center;padding:1.5rem;font-size:.6rem;color:var(--t3);font-weight:300;border-top:1px solid var(--bd);letter-spacing:.5px;background:var(--bg)}
+    .nav-item {
+      display: flex; align-items: center; gap: 0.85rem;
+      cursor: pointer; padding: 0.55rem 0;
+      text-decoration: none;
+    }
 
-@media(max-width:860px){
-  .hc-sub{display:none}
-  .home-about{grid-template-columns:1fr}
-  .ab-block{border-right:none;border-bottom:1px solid var(--bd)}
-  .ab-block:last-child{border-bottom:none}
-}
-@media(max-width:600px){
-  nav{padding:0 1.5rem}
-  .nav-links{display:none}
-  .nav-toggle{display:block}
-  .hero{padding:0 1.5rem}
-  .hc-label{width:5rem}
-  .ab-block{padding:2rem 1.5rem}
-  .inner{padding:3.5rem 1.3rem 5rem}
-  .entry-top{flex-direction:column;gap:.15rem}
-}
-</style>
+    .nav-item-label {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-mute); white-space: nowrap;
+      transition: color 0.5s var(--ease), transform 0.5s var(--ease);
+      transform: translateX(0);
+    }
+
+    .nav-item:hover .nav-item-label { color: var(--text-dim); }
+    .nav-item.active .nav-item-label { color: var(--accent-light); }
+
+    .nav-item-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border-light); flex-shrink: 0;
+      transition: all 0.5s var(--ease); position: relative;
+    }
+
+    .nav-item:hover .nav-item-dot { background: var(--text-dim); transform: scale(1.35); }
+    .nav-item.active .nav-item-dot { background: var(--accent-light); transform: scale(1.5); }
+
+    .nav-item.active .nav-item-dot::after {
+      content: ''; position: absolute; inset: -5px; border-radius: 50%;
+      border: 1px solid var(--accent-dim); opacity: 0.4;
+      animation: ringPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 0 8vw;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      opacity: 0.055;
+      background-size: cover; background-position: center 30%;
+      filter: grayscale(1) contrast(1.2);
+      transform: scale(1.08);
+      transition: transform 12s cubic-bezier(0.1, 0.8, 0.2, 1);
+    }
+
+    .hero.loaded .hero-bg { transform: scale(1); }
+
+    .hero > *:not(.hero-bg) { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 0.55rem; font-weight: 500;
+      letter-spacing: 3.5px; text-transform: uppercase;
+      color: var(--text-mute); margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+
+    .hero-eyebrow span {
+      display: inline-block; opacity: 0;
+      transform: translateY(100%);
+      animation: revealText 0.7s var(--ease) 0.1s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 8.5vw, 7.5rem);
+      font-weight: 400; color: var(--white);
+      letter-spacing: -1.5px; line-height: 0.95;
+      margin-bottom: 2rem;
+    }
+
+    .hero-name .line { display: block; overflow: hidden; }
+    .hero-name .line span {
+      display: inline-block; opacity: 0;
+      transform: translateY(110%);
+      animation: revealText 1.1s var(--ease) forwards;
+    }
+    .hero-name .line:nth-child(2) span { animation-delay: 0.1s; }
+
+    .hero-sub {
+      font-size: 0.78rem; font-weight: 300;
+      color: var(--text-dim); letter-spacing: 0.3px;
+      margin-bottom: 2rem;
+      opacity: 0; transform: translateY(14px);
+      animation: revealUp 0.8s var(--ease) 0.4s forwards;
+    }
+
+    .hero-intro {
+      max-width: 440px;
+      font-size: 0.78rem; font-weight: 300;
+      line-height: 1.9; color: var(--text);
+      opacity: 0; transform: translateY(16px);
+      animation: revealUp 0.8s var(--ease) 0.55s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.8rem; left: 8vw;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.6rem;
+      opacity: 0; animation: fadeIn 0.5s ease 1.3s forwards;
+    }
+
+    .hero-scroll-text {
+      font-size: 0.48rem; letter-spacing: 3.5px;
+      text-transform: uppercase; color: var(--text-mute);
+    }
+
+    .hero-scroll-bar {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--border-light), transparent);
+      position: relative; overflow: hidden;
+    }
+
+    .hero-scroll-bar::after {
+      content: ''; position: absolute; top: -100%; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--accent-dim), transparent);
+      animation: scrollLine 2.5s ease-in-out infinite;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 8rem 8vw 6rem; position: relative; }
+
+    .section-header { margin-bottom: 3.5rem; }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      font-weight: 400; color: var(--accent);
+      letter-spacing: -0.5px; line-height: 1.1;
+      display: inline-block; position: relative;
+      will-change: transform;
+    }
+
+    .section-title::after {
+      content: ''; position: absolute;
+      bottom: -0.5rem; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent-dim);
+      transition: width 1s var(--ease);
+    }
+
+    .section.revealed .section-title::after { width: 100%; }
+
+    .section-rule {
+      width: 100%; height: 1px;
+      background: var(--border); margin-top: 1.6rem;
+    }
+
+    /* ── REVEAL ── */
+    .section-header, .about-col-left, .about-col-right,
+    .entry, .skill-block, .contact-sub, .contact-link, .cv-button-wrap {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+    }
+
+    .revealed .section-header { opacity: 1; transform: translateY(0); }
+    .revealed .about-col-left { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+    .revealed .about-col-right { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+    .revealed .contact-sub { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+    .entry.visible, .skill-block.visible, .contact-link.visible, .cv-button-wrap.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ── ENTRIES ── */
+    .entry {
+      display: grid; grid-template-columns: 155px 1fr;
+      gap: 3rem; padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+
+    .entry::before {
+      content: ''; position: absolute; top: -1px; left: 0;
+      width: 0; height: 1px; background: var(--accent-dim);
+      transition: width 0.6s var(--ease);
+    }
+
+    .entry:hover::before { width: 100%; }
+
+    .entry-meta { padding-top: 0.25rem; }
+
+    .entry-date {
+      font-size: 0.7rem; color: var(--text-dim);
+      font-weight: 400; margin-bottom: 0.2rem;
+    }
+
+    .entry-location {
+      font-size: 0.6rem; color: var(--text-mute); font-weight: 300;
+    }
+
+    .entry-title {
+      font-family: var(--serif);
+      font-size: 1.15rem; font-weight: 500;
+      color: var(--text-bright); margin-bottom: 0.1rem;
+      line-height: 1.3;
+    }
+
+    .entry-role {
+      font-size: 0.72rem; color: var(--accent);
+      font-weight: 400; margin-bottom: 0.7rem;
+    }
+
+    .entry-body {
+      font-size: 0.76rem; font-weight: 300;
+      color: var(--text); line-height: 1.88;
+    }
+
+    .entry-body p { margin-bottom: 0.5rem; }
+    .entry-body p:last-child { margin-bottom: 0; }
+
+    .entry-tags {
+      display: flex; gap: 0.4rem;
+      flex-wrap: wrap; margin-top: 0.85rem;
+    }
+
+    .tag {
+      font-size: 0.5rem; font-weight: 500;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--accent-dim); border: 1px solid var(--border);
+      padding: 0.17rem 0.55rem; border-radius: 1px;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .entry:hover .tag { border-color: var(--border-light); color: var(--accent); }
+
+    .entry-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      margin-top: 1rem; font-size: 0.66rem; font-weight: 400;
+      color: var(--accent); text-decoration: none;
+      transition: color 0.3s, gap 0.3s;
+    }
+
+    .entry-link:hover { color: var(--text-bright); gap: 0.55rem; }
+
+    .entry-link-arrow {
+      transition: transform 0.3s var(--ease); font-size: 0.72rem;
+    }
+
+    .entry-link:hover .entry-link-arrow { transform: translate(2px, -2px); }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    }
+
+    .about-col p {
+      font-size: 0.8rem; font-weight: 300;
+      line-height: 1.95; color: var(--text); margin-bottom: 0.9rem;
+    }
+
+    .about-col p:last-child { margin-bottom: 0; }
+
+    .about-col-title {
+      font-family: var(--serif);
+      font-size: 1.05rem; font-weight: 500;
+      color: var(--text-bright); margin-bottom: 1rem;
+      padding-bottom: 0.6rem; border-bottom: 1px solid var(--border);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem;
+    }
+
+    .skill-block {
+      padding: 1.8rem 0; border-top: 1px solid var(--border);
+      position: relative;
+    }
+
+    .skill-block::before {
+      content: ''; position: absolute; top: -1px; left: 0;
+      width: 0; height: 1px; background: var(--accent-dim);
+      transition: width 0.6s var(--ease);
+    }
+
+    .skill-block:hover::before { width: 100%; }
+
+    .skill-block-title {
+      font-family: var(--serif);
+      font-size: 0.95rem; font-weight: 500;
+      color: var(--text-bright); margin-bottom: 0.5rem;
+    }
+
+    .skill-block-body {
+      font-size: 0.73rem; font-weight: 300;
+      color: var(--text); line-height: 1.82;
+    }
+
+    /* ── LANGUAGES ── */
+    .lang-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 2px;
+      overflow: hidden; margin-top: 2rem;
+    }
+
+    .lang-cell {
+      background: var(--bg2); padding: 1.2rem 1rem; text-align: center;
+    }
+
+    .lang-name {
+      font-family: var(--serif);
+      font-size: 0.95rem; font-weight: 500;
+      color: var(--text-bright); margin-bottom: 0.25rem;
+    }
+
+    .lang-level {
+      font-size: 0.58rem; font-weight: 400;
+      letter-spacing: 0.8px; color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    /* ── CONTACT ── */
+    .contact-sub {
+      font-size: 0.8rem; color: var(--text-dim);
+      font-weight: 300; margin-bottom: 3rem;
+      max-width: 420px; line-height: 1.85;
+    }
+
+    .contact-links { display: flex; flex-direction: column; }
+
+    .contact-link {
+      display: flex; align-items: center; gap: 2rem;
+      text-decoration: none; padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+
+    .contact-link::before {
+      content: ''; position: absolute; top: -1px; left: 0;
+      width: 0; height: 1px; background: var(--accent-dim);
+      transition: width 0.6s var(--ease);
+    }
+
+    .contact-link:hover::before { width: 100%; }
+
+    .contact-label {
+      font-size: 0.55rem; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-mute); min-width: 80px;
+      transition: color 0.3s;
+    }
+
+    .contact-link:hover .contact-label { color: var(--text-dim); }
+
+    .contact-value {
+      font-family: var(--serif);
+      font-size: 1.1rem; color: var(--text-bright);
+      font-weight: 400; letter-spacing: -0.2px;
+      transition: color 0.3s;
+    }
+
+    .contact-link:hover .contact-value { color: var(--accent-light); }
+
+    .cv-button-wrap { margin-top: 3rem; }
+
+    .cv-button {
+      display: inline-block; padding: 0.7rem 2.2rem;
+      border: 1px solid var(--border-light);
+      color: var(--text-bright);
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; position: relative; overflow: hidden;
+      transition: border-color 0.4s, color 0.4s;
+    }
+
+    .cv-button::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--accent-dim);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s var(--ease); z-index: 0;
+    }
+
+    .cv-button:hover::before { transform: scaleX(1); }
+    .cv-button:hover { border-color: var(--accent-dim); color: #fff; }
+    .cv-button span { position: relative; z-index: 1; }
+
+    /* ── DIVIDER ── */
+    .divider { width: 100%; padding: 0 8vw; }
+
+    .divider-line {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3.5rem 8vw;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.55rem; color: var(--text-mute); letter-spacing: 0.5px;
+    }
+
+    footer a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.55rem; letter-spacing: 1.5px; text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    footer a:hover { color: var(--text-bright); }
+
+    /* ── KEYFRAMES ── */
+    @keyframes revealText { to { opacity: 1; transform: translateY(0); } }
+    @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes scrollLine { 0% { top: -100%; } 100% { top: 100%; } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 0 6vw; }
+      .section { padding: 5.5rem 6vw 4rem; }
+      .nav-rail { right: 0.6rem; }
+      .nav-item-label { display: none; }
+      .nav-item-dot { width: 5px; height: 5px; }
+      .hero-scroll { left: 6vw; }
+      .entry { grid-template-columns: 1fr; gap: 0.4rem; }
+      .entry-meta { display: flex; gap: 0.8rem; align-items: baseline; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .lang-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 0.6rem; text-align: center; padding: 2rem 6vw; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-name { font-size: 2.8rem; letter-spacing: -0.5px; }
+      .section-title { font-size: 1.8rem; }
+      .lang-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<nav id="sitenav">
-  <a class="nav-name" href="#home">Riccardo Scalia</a>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <button class="nav-toggle" onclick="this.closest('nav').classList.toggle('open')">
-    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-  </button>
+<!-- NAV -->
+<nav class="nav-rail" aria-label="Navigation">
+  <a class="nav-item active" data-section="hero"><span class="nav-item-label">Home</span><span class="nav-item-dot"></span></a>
+  <a class="nav-item" data-section="about"><span class="nav-item-label">About</span><span class="nav-item-dot"></span></a>
+  <a class="nav-item" data-section="experience"><span class="nav-item-label">Experience</span><span class="nav-item-dot"></span></a>
+  <a class="nav-item" data-section="projects"><span class="nav-item-label">Projects</span><span class="nav-item-dot"></span></a>
+  <a class="nav-item" data-section="education"><span class="nav-item-label">Education</span><span class="nav-item-dot"></span></a>
+  <a class="nav-item" data-section="skills"><span class="nav-item-label">Skills</span><span class="nav-item-dot"></span></a>
+  <a class="nav-item" data-section="contact"><span class="nav-item-label">Contact</span><span class="nav-item-dot"></span></a>
 </nav>
-<div class="mob">
-  <a href="#home">Home</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#education">Education</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</div>
 
 
-<!-- HOME -->
-<div id="home" class="page">
-  <div class="hero">
-    <div class="hero-bg">
-      <img src="Home.jpg" alt="">
-    </div>
-    <div class="hero-center">
-      <div class="hero-location">Milan · 2026</div>
-      <h1 class="hero-name">Riccardo Scalia</h1>
-      <div class="hero-role">Investment Analysis &nbsp;·&nbsp; Corporate Finance &nbsp;·&nbsp; Asset Pricing</div>
-    </div>
-    <div class="hero-bottom">
-      <a class="hero-cell" href="#experience">
-        <div class="hc-left">
-          <div class="hc-label">Current</div>
-          <div class="hc-title">Clessidra Capital Credit SGR — CPD II</div>
-        </div>
-        <div class="hc-sub">Investment Analysis · Milan · 2026</div>
-      </a>
-      <a class="hero-cell" href="#experience">
-        <div class="hc-left">
-          <div class="hc-label">Previous</div>
-          <div class="hc-title">BBVA CIB — Global Relationship &amp; Coverage</div>
-        </div>
-        <div class="hc-sub">Syndication &amp; Coverage · Milan · 2025</div>
-      </a>
-      <a class="hero-cell" href="#projects">
-        <div class="hc-left">
-          <div class="hc-label">Latest project</div>
-          <div class="hc-title">Global Rates Signal Lab</div>
-        </div>
-        <div class="hc-sub">Duration, Carry &amp; Cross-Market · 2026</div>
-      </a>
-      <a class="hero-cell" href="#education">
-        <div class="hc-left">
-          <div class="hc-label">Academic</div>
-          <div class="hc-title">LUISS — MSc Corporate Finance</div>
-        </div>
-        <div class="hc-sub">FT 20th in Europe · GPA 29.3/30</div>
-      </a>
-    </div>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" style="background-image: url('Home.jpg');"></div>
+
+  <div class="hero-eyebrow"><span>Portfolio</span></div>
+
+  <div class="hero-name">
+    <span class="line"><span>Riccardo</span></span>
+    <span class="line"><span>Scalia</span></span>
   </div>
 
-  <div class="home-about">
-    <div class="ab-block">
-      <span class="ab-label">About</span>
-      <p>MSc in Corporate Finance at LUISS University of Rome, with an Erasmus semester at Utrecht University focused on Quantitative Finance. Academic work centred on asset pricing, risk, and empirical methods — thesis on empirical drivers of risk premia in gold and silver markets, supervised by Prof. Morelli.</p>
-      <p>Background in sailing, which has shaped a disciplined approach to decision-making under uncertainty: reading conditions carefully, acting with composure.</p>
-    </div>
-    <div class="ab-block">
-      <span class="ab-label">Portfolio &amp; Research</span>
+  <div class="hero-sub">Investment Analysis · Corporate Finance</div>
+
+  <div class="hero-intro">
+    MSc Corporate Finance at LUISS University of Rome, Erasmus at Utrecht. Currently at Clessidra Capital Credit, previously BBVA CIB. Based in Milan.
+  </div>
+
+  <div class="hero-scroll">
+    <span class="hero-scroll-text">Scroll</span>
+    <div class="hero-scroll-bar"></div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-header">
+    <div class="section-title" data-parallax>About</div>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-col about-col-left">
+      <div class="about-col-title">Profile</div>
+      <p>MSc in Corporate Finance at LUISS University of Rome, with an Erasmus semester at Utrecht University focused on Quantitative Finance. Academic work centred on asset pricing, risk, and empirical methods — thesis on demand heterogeneity and the pricing of gold and silver markets.</p>
       <p>A personal multi-asset investment portfolio maintained as a structured exercise in capital allocation, risk monitoring, and macro thesis formulation — running in parallel to academic and professional activity.</p>
-      <p>Hawk I is a fully automated Python analytics system built to track it: FIFO engine, XIRR computation, real-time pricing, risk metrics, equity-curve modelling, and daily HTML reporting via GitHub Actions.</p>
+    </div>
+    <div class="about-col about-col-right">
+      <div class="about-col-title">Interests</div>
+      <p>Outside of finance, I spend time with contemporary art, architecture, design, and sailing. I play classical piano.</p>
+      <p>I like building things. Hawk I — the automated analytics system behind my portfolio — started as a small idea and grew from there. That tendency to create, iterate, and try to make things better carries across most of what I do.</p>
     </div>
   </div>
+</section>
 
-  <footer>© 2026 Riccardo Scalia</footer>
-</div>
-
+<div class="divider"><div class="divider-line"></div></div>
 
 <!-- EXPERIENCE -->
-<div id="experience" class="page">
-  <div class="inner">
-    <span class="page-lbl">Experience</span>
+<section class="section" id="experience">
+  <div class="section-header">
+    <div class="section-title" data-parallax>Experience</div>
+    <div class="section-rule"></div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">Clessidra Capital Credit SGR — CPD II</div>
-        <div class="entry-date">Jan – Jun 2026 · Milan</div>
-      </div>
+  <div class="entry">
+    <div class="entry-meta">
+      <div class="entry-date">Jan – Jun 2026</div>
+      <div class="entry-location">Milan</div>
+    </div>
+    <div class="entry-content">
+      <div class="entry-title">Clessidra Capital Credit SGR — CPD II</div>
       <div class="entry-role">Investment Analysis</div>
-      <div class="entry-tags"><span class="tag">Private Debt</span><span class="tag">Investments</span></div>
       <div class="entry-body">
         <p>Clessidra Capital Credit SGR is the private credit platform of Gruppo Clessidra, one of Italy's leading alternative asset managers. CPD II completed its first closing in March 2026 at over €100 million — with the European Investment Fund as cornerstone investor — targeting a final raise of €225 million. The fund provides flexible debt financing to Italian SMEs and mid-caps, primarily through senior and subordinated instruments with equity-like features.</p>
-        <p>Joined shortly after first closing. Supported the investment team in early-stage opportunity evaluation — initial screening, credit and financial analysis, and preparation of internal materials for investment committee discussions. Market mapping and comparable transaction analysis as required. Developed in parallel a Master's thesis on empirical drivers of risk premia in gold and silver markets.</p>
+        <p>Joined shortly after first closing. Supported the investment team in early-stage opportunity evaluation — initial screening, credit and financial analysis, and preparation of internal materials for investment committee discussions. Market mapping and comparable transaction analysis as required.</p>
+      </div>
+      <div class="entry-tags">
+        <span class="tag">Private Debt</span>
+        <span class="tag">Investments</span>
       </div>
     </div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">BBVA CIB — Global Relationship &amp; Coverage</div>
-        <div class="entry-date">Jun – Aug 2025 · Milan</div>
-      </div>
+  <div class="entry">
+    <div class="entry-meta">
+      <div class="entry-date">Jun – Aug 2025</div>
+      <div class="entry-location">Milan</div>
+    </div>
+    <div class="entry-content">
+      <div class="entry-title">BBVA CIB — Global Relationship &amp; Coverage</div>
       <div class="entry-role">Syndication &amp; Coverage, Summer Analyst</div>
-      <div class="entry-tags"><span class="tag">Syndication</span><span class="tag">Coverage</span></div>
       <div class="entry-body">
         <p>BBVA's Corporate &amp; Investment Banking division operates across 24 countries with a comprehensive platform spanning corporate lending, debt capital markets, and structured finance. The Milan office covers relationship management and loan syndication for large Italian and multinational corporates, with a strong presence in leveraged and investment-grade lending across southern Europe.</p>
         <p>Supported the origination and structuring of bilateral and syndicated financing facilities (€50–€200M) for multinational clients across industrials, automotive, oil, and energy. Contributed to approximately ten transactions for corporates with combined revenues over €60 billion. Work covered financial analysis, covenant review, peer benchmarking, and due diligence. Platforms: Dealogic, Mergermarket, BBVA internal. Exposure to teams in Madrid and London.</p>
       </div>
+      <div class="entry-tags">
+        <span class="tag">Syndication</span>
+        <span class="tag">Coverage</span>
+      </div>
     </div>
-
   </div>
-  <footer>© 2026 Riccardo Scalia</footer>
-</div>
+</section>
 
+<div class="divider"><div class="divider-line"></div></div>
 
 <!-- PROJECTS -->
-<div id="projects" class="page">
-  <div class="inner">
-    <span class="page-lbl">Projects</span>
+<section class="section" id="projects">
+  <div class="section-header">
+    <div class="section-title" data-parallax>Projects</div>
+    <div class="section-rule"></div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">Global Rates Signal Lab — Duration, Carry &amp; Cross-Market Allocation</div>
-        <div class="entry-date">2026</div>
-      </div>
-      <div class="entry-role">Fixed Income Research</div>
-      <div class="entry-tags"><span class="tag">Fixed Income</span><span class="tag">Systematic</span></div>
+  <div class="entry">
+    <div class="entry-meta"><div class="entry-date">2026</div></div>
+    <div class="entry-content">
+      <div class="entry-title">Global Rates Signal Lab</div>
+      <div class="entry-role">Duration, Carry &amp; Cross-Market Allocation</div>
       <div class="entry-body">
         <p>Multi-country framework testing systematic duration timing and cross-market allocation across Japan, US, UK, and Germany. Signals derived from bond momentum and carry (10Y minus 1M yield spread), applied under simple volatility-scaled risk controls. Performance evaluated in yield-space P&amp;L with an optional FX-hedged overlay. Full attribution by country, rate regime, and signal aggregation method.</p>
         <p>Methodology draws on J.P. Morgan Investment Strategies No. 74. Built entirely in Excel with structured scenario and sensitivity layers.</p>
-        <a href="FIM-PJ.pdf" download class="btn">View Extract</a>
       </div>
+      <div class="entry-tags"><span class="tag">Fixed Income</span><span class="tag">Systematic</span></div>
+      <a href="FIM-PJ.pdf" download class="entry-link">View Extract <span class="entry-link-arrow">↗</span></a>
     </div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">Automated Portfolio Analytics — Hawk I</div>
-        <div class="entry-date">2025</div>
-      </div>
+  <div class="entry">
+    <div class="entry-meta"><div class="entry-date">2025</div></div>
+    <div class="entry-content">
+      <div class="entry-title">Automated Portfolio Analytics — Hawk I</div>
       <div class="entry-role">Python · Personal Portfolio</div>
-      <div class="entry-tags"><span class="tag">Python</span><span class="tag">Analytics</span></div>
       <div class="entry-body">
-        <p>End-to-end Python system for tracking a personal multi-asset portfolio. Implements a FIFO cost-basis engine, XIRR return computation, and real-time pricing via Yahoo Finance. Produces daily risk metrics (volatility, drawdown, Sharpe), equity-curve modelling, and category-level attribution. Fully automated HTML reports generated three times daily through GitHub Actions — no manual input required.</p>
+        <p>End-to-end Python system for tracking a personal multi-asset portfolio. Implements a FIFO cost-basis engine, XIRR return computation, and real-time pricing via Yahoo Finance. Produces daily risk metrics (volatility, drawdown, Sharpe), equity-curve modelling, and category-level attribution. Fully automated HTML reports generated three times daily through GitHub Actions.</p>
       </div>
+      <div class="entry-tags"><span class="tag">Python</span><span class="tag">Analytics</span></div>
     </div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">Rothschild &amp; Co. — M&amp;A Business Game</div>
-        <div class="entry-date">2025</div>
-      </div>
+  <div class="entry">
+    <div class="entry-meta"><div class="entry-date">2025</div></div>
+    <div class="entry-content">
+      <div class="entry-title">Rothschild &amp; Co. — M&amp;A Business Game</div>
       <div class="entry-role">Advisory Simulation</div>
-      <div class="entry-tags"><span class="tag">Valuation</span><span class="tag">Advisory</span></div>
       <div class="entry-body">
         <p>Full transaction model for a simulated cross-border M&amp;A advisory mandate. Deliverables included a DCF, trading and transaction multiples analysis, and sensitivity tables — presented as a client-ready pitch deck. Ranked best project among 30 competing teams. Tools: Excel, Bloomberg, Mergermarket, Dealogic.</p>
-        <a href="Rothschild &amp; Co. – M&amp;A Business Game.jpg" download class="btn">View Extract</a>
       </div>
+      <div class="entry-tags"><span class="tag">Valuation</span><span class="tag">Advisory</span></div>
+      <a href="Rothschild &amp; Co. – M&amp;A Business Game.jpg" download class="entry-link">View Extract <span class="entry-link-arrow">↗</span></a>
     </div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">Salvatore Ferragamo — Financial Analysis</div>
-        <div class="entry-date">2025</div>
-      </div>
+  <div class="entry">
+    <div class="entry-meta"><div class="entry-date">2025</div></div>
+    <div class="entry-content">
+      <div class="entry-title">Salvatore Ferragamo — Financial Analysis</div>
       <div class="entry-role">Equity Valuation</div>
-      <div class="entry-tags"><span class="tag">Equity</span><span class="tag">Valuation</span></div>
       <div class="entry-body">
         <p>Equity valuation combining EV/EBITDA and P/E trading multiples with a Residual Earnings Model. Analysis covered capital structure, WACC derivation, revenue growth assumptions, and peer benchmarking across European luxury. Top-ranked presentation in class.</p>
-        <a href="Salvatore Ferragamo – Equity Valuation Project.jpg" download class="btn">View Extract</a>
       </div>
+      <div class="entry-tags"><span class="tag">Equity</span><span class="tag">Valuation</span></div>
+      <a href="Salvatore Ferragamo – Equity Valuation Project.jpg" download class="entry-link">View Extract <span class="entry-link-arrow">↗</span></a>
     </div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">Banco Popular — Resolution Case Study</div>
-        <div class="entry-date">2024</div>
-      </div>
+  <div class="entry">
+    <div class="entry-meta"><div class="entry-date">2024</div></div>
+    <div class="entry-content">
+      <div class="entry-title">Banco Popular — Resolution Case Study</div>
       <div class="entry-role">Regulatory Analysis · BSc Final Thesis</div>
-      <div class="entry-tags"><span class="tag">Regulation</span><span class="tag">Banking</span></div>
       <div class="entry-body">
         <p>In-depth analysis of Banco Popular's 2017 resolution and subsequent acquisition by Santander — the first application of the BRRD framework in the Eurozone. Covered early warning signals, liquidity deterioration, SRB intervention mechanics, bail-in of equity and AT1 instruments, creditor hierarchy, and implications for European banking resolution policy. Final BSc thesis — 110 cum laude.</p>
-        <a href="Banco Popular – Resolution Case Study.jpg" download class="btn">View Extract</a>
       </div>
+      <div class="entry-tags"><span class="tag">Regulation</span><span class="tag">Banking</span></div>
+      <a href="Banco Popular – Resolution Case Study.jpg" download class="entry-link">View Extract <span class="entry-link-arrow">↗</span></a>
     </div>
-
   </div>
-  <footer>© 2026 Riccardo Scalia</footer>
-</div>
+</section>
 
+<div class="divider"><div class="divider-line"></div></div>
 
 <!-- EDUCATION -->
-<div id="education" class="page">
-  <div class="inner">
-    <span class="page-lbl">Education</span>
+<section class="section" id="education">
+  <div class="section-header">
+    <div class="section-title" data-parallax>Education</div>
+    <div class="section-rule"></div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">LUISS University of Rome — MSc Corporate Finance</div>
-        <div class="entry-date">2024 – 2026</div>
-      </div>
-      <div class="entry-role">Ranked 20th in Europe · Financial Times 2025</div>
+  <div class="entry">
+    <div class="entry-meta">
+      <div class="entry-date">2024 – 2026</div>
+      <div class="entry-location">Rome</div>
+    </div>
+    <div class="entry-content">
+      <div class="entry-title">LUISS University of Rome</div>
+      <div class="entry-role">MSc Corporate Finance · FT 20th in Europe (2025)</div>
       <div class="entry-body">
         <p>Core coursework: Asset Pricing, Business Valuation, Investment Banking, Risk Management, Financial Derivatives, Quantitative Methods for Finance, Corporate Governance.</p>
-        <p>Thesis: <em>Empirical Drivers of Risk Premia in Gold and Silver Markets</em> — econometric analysis of macroeconomic, monetary, and sentiment variables as predictors of precious metal risk premia. Supervisor: Prof. Morelli.</p>
-        <div class="entry-stat">GPA &nbsp;·&nbsp; <span>29.3 / 30</span></div>
+        <p>Thesis: <em>Demand Heterogeneity and the Pricing of Gold and Silver</em> — econometric analysis of macroeconomic, monetary, and sentiment variables as predictors of precious metal risk premia.</p>
       </div>
     </div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">Utrecht University — Erasmus Exchange</div>
-        <div class="entry-date">Sep 2023 – Feb 2024</div>
-      </div>
-      <div class="entry-role">Quantitative Finance · School of Economics · Netherlands</div>
+  <div class="entry">
+    <div class="entry-meta">
+      <div class="entry-date">Sep 2023 – Feb 2024</div>
+      <div class="entry-location">Netherlands</div>
+    </div>
+    <div class="entry-content">
+      <div class="entry-title">Utrecht University — Erasmus Exchange</div>
+      <div class="entry-role">Quantitative Finance · School of Economics</div>
       <div class="entry-body">
-        <p>Six-month exchange semester. Coursework: Advanced Corporate Finance, Econometrics, Game Theory. Focus on applied quantitative methods, panel data analysis, and empirical finance. Opportunity to travel extensively across Europe during the period.</p>
+        <p>Six-month exchange semester. Coursework: Advanced Corporate Finance, Econometrics, Game Theory. Focus on applied quantitative methods, panel data analysis, and empirical finance.</p>
       </div>
     </div>
+  </div>
 
-    <div class="entry">
-      <div class="entry-top">
-        <div class="entry-title">LUISS University of Rome — BSc Economics &amp; Management</div>
-        <div class="entry-date">2021 – 2024</div>
-      </div>
-      <div class="entry-role">Summa Cum Laude</div>
+  <div class="entry">
+    <div class="entry-meta">
+      <div class="entry-date">2021 – 2024</div>
+      <div class="entry-location">Rome</div>
+    </div>
+    <div class="entry-content">
+      <div class="entry-title">LUISS University of Rome</div>
+      <div class="entry-role">BSc Economics &amp; Management · Summa Cum Laude</div>
       <div class="entry-body">
         <p>Core coursework: Microeconomics, Macroeconomics, Financial Accounting, Corporate Finance, Business Strategy, Statistics, Mathematical Methods for Economics.</p>
         <p>Thesis: <em>Banco Popular and the First Application of the BRRD Framework</em> — analysis of the 2017 resolution mechanism, bail-in tools, and implications for European banking regulation.</p>
-        <div class="entry-stat">Final grade &nbsp;·&nbsp; <span>110 / 110 cum laude</span></div>
       </div>
     </div>
-
   </div>
-  <footer>© 2026 Riccardo Scalia</footer>
-</div>
+</section>
 
+<div class="divider"><div class="divider-line"></div></div>
 
 <!-- SKILLS -->
-<div id="skills" class="page">
-  <div class="inner">
-    <span class="page-lbl">Skills</span>
-
-    <div class="entry">
-      <div class="entry-top"><div class="entry-title">Technical</div></div>
-      <div class="entry-body">
-        <p><strong style="color:var(--t);font-weight:500">Finance &amp; Analysis</strong> — Advanced Excel (financial modelling, scenario analysis, DCF, sensitivity tables, risk metrics), Advanced PowerPoint (pitch decks, investment presentations), Bloomberg terminal, Dealogic, Mergermarket.</p>
-        <p><strong style="color:var(--t);font-weight:500">Programming</strong> — Elementary level. Python (Pandas, Matplotlib, NumPy, GitHub Actions), HTML / CSS / JavaScript, VS Code, Git / GitHub.</p>
-        <p><strong style="color:var(--t);font-weight:500">AI Tools</strong> — Regular use of Claude and ChatGPT for research, writing, and coding assistance. Comfortable integrating AI tools into analytical and development workflows.</p>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-top"><div class="entry-title">Investment Portfolio &amp; Hawk I</div></div>
-      <div class="entry-body">
-        <p>A personal multi-asset portfolio managed as a structured exercise in capital allocation, risk monitoring, and macro thesis formulation. Hawk I is a fully automated Python analytics system: FIFO engine, XIRR, real-time pricing via YFinance, risk metrics (volatility, drawdown, Sharpe), equity-curve modelling, and daily HTML reporting via GitHub Actions.</p>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-top"><div class="entry-title">Leadership</div></div>
-      <div class="entry-body">
-        <p><strong style="color:var(--t);font-weight:500">Rotaract Club LUISS</strong> — Director and active member since 2022. Event organisation, community engagement, and club strategy. Experience coordinating working groups in a voluntary setting.</p>
-        <p><strong style="color:var(--t);font-weight:500">Academic projects</strong> — Active contributor across various group projects during the MSc, including valuation work and analytical presentations delivered to faculty panels.</p>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-top"><div class="entry-title">Languages</div></div>
-      <div class="entry-body">
-        <div class="lang-grid">
-          <div><div class="lg-name">Italian</div><div class="lg-level">Native</div></div>
-          <div><div class="lg-name">English</div><div class="lg-level">Fluent · C2</div></div>
-          <div><div class="lg-name">Spanish</div><div class="lg-level">Intermediate · B1</div></div>
-          <div><div class="lg-name">French</div><div class="lg-level">Elementary · A1</div></div>
-        </div>
-      </div>
-    </div>
-
+<section class="section" id="skills">
+  <div class="section-header">
+    <div class="section-title" data-parallax>Skills &amp; Activities</div>
+    <div class="section-rule"></div>
   </div>
-  <footer>© 2026 Riccardo Scalia</footer>
-</div>
 
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-title">Finance &amp; Analysis</div>
+      <div class="skill-block-body">Advanced Excel — financial modelling, scenario analysis, DCF, sensitivity tables, risk metrics. Advanced PowerPoint — pitch decks, investment presentations. Bloomberg terminal, Dealogic, Mergermarket.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Programming</div>
+      <div class="skill-block-body">Python — Pandas, Matplotlib, NumPy, GitHub Actions. HTML, CSS, JavaScript. VS Code, Git, GitHub. Regular use of Claude and ChatGPT for research, writing, and coding.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Investment Portfolio &amp; Hawk I</div>
+      <div class="skill-block-body">Personal multi-asset portfolio — capital allocation, risk monitoring, macro thesis formulation. Hawk I: automated Python analytics with FIFO engine, XIRR, real-time pricing, risk metrics, and daily HTML reporting.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Leadership &amp; Activities</div>
+      <div class="skill-block-body">Director at Rotaract Club LUISS since 2022 — event organisation, community engagement, institutional relations. Member of the Focolare Movement since 2015.</div>
+    </div>
+  </div>
+
+  <div class="lang-grid">
+    <div class="lang-cell">
+      <div class="lang-name">Italian</div>
+      <div class="lang-level">Native</div>
+    </div>
+    <div class="lang-cell">
+      <div class="lang-name">English</div>
+      <div class="lang-level">Fluent · C2</div>
+    </div>
+    <div class="lang-cell">
+      <div class="lang-name">Spanish</div>
+      <div class="lang-level">Intermediate · B1</div>
+    </div>
+    <div class="lang-cell">
+      <div class="lang-name">French</div>
+      <div class="lang-level">Elementary · A1</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
 
 <!-- CONTACT -->
-<div id="contact" class="page">
-  <div class="inner">
-    <span class="page-lbl">Contact</span>
-    <p style="font-size:.82rem;line-height:1.9;font-weight:300;color:var(--t2);margin-bottom:2.5rem;max-width:460px">Open to connecting with professionals and peers who share a genuine interest in markets, investment analysis, and long-term value creation.</p>
+<section class="section" id="contact">
+  <div class="section-header">
+    <div class="section-title" data-parallax>Contact</div>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="contact-sub">Open to connecting with professionals and peers who share a genuine interest in markets, investment analysis, and long-term value creation.</div>
+
+  <div class="contact-links">
     <a href="mailto:rscaliawork@gmail.com" class="contact-link">
-      <div class="cl-label">Email</div>
-      <div class="cl-val">rscaliawork@gmail.com</div>
+      <span class="contact-label">Email</span>
+      <span class="contact-value">rscaliawork@gmail.com</span>
     </a>
     <a href="https://www.linkedin.com/in/riccardoscalia" target="_blank" class="contact-link">
-      <div class="cl-label">LinkedIn</div>
-      <div class="cl-val">linkedin.com/in/riccardoscalia</div>
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-value">linkedin.com/in/riccardoscalia</span>
     </a>
-    <a href="RiccardoScalia_CV.pdf" download class="contact-link">
-      <div class="cl-label">
+  </div>
+
+  <div class="cv-button-wrap">
+    <a href="RiccardoScalia_CV.pdf" download class="cv-button"><span>Download CV</span></a>
+  </div>
+</section>
+
+
+<footer>
+  <span>&copy; 2026 Riccardo Scalia</span>
+  <a href="#hero">Back to top</a>
+</footer>
+
+
+<script>
+(function() {
+  /* ═══════════ SMOOTH SCROLL (lerp-based) ═══════════ */
+  var smoothEnabled = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  
+  if (smoothEnabled) {
+    var scrollY = window.scrollY;
+    var targetY = scrollY;
+    var scrolling = false;
+    var lerpFactor = 0.09;
+
+    window.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      targetY += e.deltaY;
+      targetY = Math.max(0, Math.min(targetY, document.documentElement.scrollHeight - window.innerHeight));
+      if (!scrolling) { scrolling = true; smoothLoop(); }
+    }, { passive: false });
+
+    function smoothLoop() {
+      scrollY += (targetY - scrollY) * lerpFactor;
+
+      if (Math.abs(targetY - scrollY) < 0.5) {
+        scrollY = targetY;
+        window.scrollTo(0, scrollY);
+        scrolling = false;
+        return;
+      }
+
+      window.scrollTo(0, scrollY);
+      requestAnimationFrame(smoothLoop);
+    }
+
+    // Sync on programmatic scroll (nav clicks)
+    var origScrollTo = window.scrollTo.bind(window);
+    window.addEventListener('scroll', function() {
+      if (!scrolling) {
+        scrollY = window.scrollY;
+        targetY = scrollY;
+      }
+    });
+  }
+
+  /* ═══════════ PARALLAX ON SECTION TITLES ═══════════ */
+  var parallaxEls = document.querySelectorAll('[data-parallax]');
+
+  function updateParallax() {
+    var scrollTop = window.scrollY;
+    var windowH = window.innerHeight;
+
+    for (var i = 0; i < parallaxEls.length; i++) {
+      var el = parallaxEls[i];
+      var rect = el.getBoundingClientRect();
+      var center = rect.top + rect.height / 2;
+      var offset = (center - windowH / 2) * -0.08;
+      el.style.transform = 'translateY(' + offset + 'px)';
+    }
+  }
+
+  /* ═══════════ HERO LOAD ═══════════ */
+  setTimeout(function() { document.querySelector('.hero').classList.add('loaded'); }, 80);
+
+  /* ═══════════ SECTION REVEAL ═══════════ */
+  var sects = document.querySelectorAll('.section');
+  var sectObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); sectObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+  sects.forEach(function(s) { sectObs.observe(s); });
+
+  /* ═══════════ STAGGER REVEAL ═══════════ */
+  var stEls = document.querySelectorAll('.entry, .skill-block, .contact-link, .cv-button-wrap');
+  var stObs = new IntersectionObserver(function(items) {
+    items.forEach(function(item) {
+      if (item.isIntersecting) {
+        var sec = item.target.closest('.section');
+        var cls = item.target.classList.contains('entry') ? '.entry' :
+                  item.target.classList.contains('skill-block') ? '.skill-block' :
+                  item.target.classList.contains('contact-link') ? '.contact-link' : null;
+        if (cls && sec) {
+          var sibs = sec.querySelectorAll(cls);
+          var idx = Array.prototype.indexOf.call(sibs, item.target);
+          setTimeout(function() { item.target.classList.add('visible'); }, idx * 120);
+        } else {
+          item.target.classList.add('visible');
+        }
+        stObs.unobserve(item.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -15px 0px' });
+  stEls.forEach(function(el) { stObs.observe(el); });
+
+  /* ═══════════ NAV RAIL ═══════════ */
+  var navItems = document.querySelectorAll('.nav-item');
+  var navSecs = [];
+
+  navItems.forEach(function(n) {
+    var id = n.getAttribute('data-section');
+    var el = document.getElementById(id);
+    if (el) navSecs.push({ el: el, nav: n });
+
+    n.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById(id);
+      if (!target) return;
+
+      if (smoothEnabled) {
+        targetY = target.offsetTop;
+        if (!scrolling) { scrolling = true; smoothLoop(); }
+      } else {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  function updateNav() {
+    var sy = window.scrollY, wh = window.innerHeight, dh = document.documentElement.scrollHeight;
+    var cur = navSecs[0];
+    if (sy + wh >= dh - 50) { cur = navSecs[navSecs.length - 1]; }
+    else { for (var i = 0; i < navSecs.length; i++) { if (navSecs[i].el.offsetTop <= sy + wh * 0.4) cur = navSecs[i]; } }
+    navItems.forEach(function(n) { n.classList.remove('active'); });
+    if (cur) cur.nav.classList.add('active');
+  }
+
+  /* ═══════════ SCROLL LOOP ═══════════ */
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateNav();
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  updateNav();
+  updateParallax();
+})();
+</script>
+
+</body>
+</html>
